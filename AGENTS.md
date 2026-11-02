@@ -9,7 +9,7 @@ The expert knows CellProfiler and Cell Painting; skip explanations of the basics
 ## Starting
 
 Run `./cps status`.
-If it says no session is running, run `./cps start`, which takes about 15 s.
+If it says no session is running, run `./cps start`, which takes 15-30 s.
 If the image or data is missing, the README covers setup; ask the expert before building the image (about 15 minutes).
 The fixture is JUMP `JUMP_analysis_v3.cppipe` on plate BR00117035, well A01, site 1.
 IdentifyPrimaryObjects is module 8; it makes NucleiIncludingEdges from CorrBlue.

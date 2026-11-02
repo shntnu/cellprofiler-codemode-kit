@@ -61,10 +61,13 @@ Expected times on a 4-CPU limit:
 |---|---|
 | Image build | about 15 min |
 | Data fetch | under a minute |
-| First container start after a build (Podman copies the image for `keep-id`) | up to 2 min, once |
-| `./cps start` | about 15 s |
-| `./cps start --full` (also runs every measurement module) | about 95 s |
+| First container start after a build (Podman copies the image for `keep-id`) | about 2.5 min, once |
+| `./cps start` | 15-30 s |
+| `./cps start --full` (also runs every measurement module) | 95-115 s |
 | One try, measure and view cycle | under 1 s |
+
+These were measured with a 4-CPU limit on a shared host.
+The session itself uses about 0.7 GB of memory.
 
 ## How it works
 
@@ -83,7 +86,7 @@ Expected times on a 4-CPU limit:
 ## Tests
 
 ```bash
-./cprun.sh python -m pytest -q /work/tests/test_session.py -p no:cacheprovider
+./cprun.sh python -m pytest -q /work/tests/test_session.py -p no:cacheprovider -p no:warnings
 ```
 
 ```bash
