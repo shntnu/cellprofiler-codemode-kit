@@ -113,5 +113,5 @@ Run it while no session is running.
 - `cps stop` exits the daemon without the JVM's own teardown.
   A JPype crash in that teardown once left an `hs_err_pid*.log` in the repo root; it was not reproduced in 6 later stops.
   Any JVM crash log now goes to `.cps/` (`-XX:ErrorFile` in `cprun.sh`), and `hs_err_pid*.log` is gitignored.
-- This repo has no license file of its own yet.
-  The fixture's sources and terms are in `fixture/SOURCE.md`.
+- The code in this repo is under the BSD 3-Clause License (`LICENSE`), the same license as CellProfiler.
+  The fixture's sources and terms are separate and listed in `fixture/SOURCE.md`.
