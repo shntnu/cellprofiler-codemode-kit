@@ -11,7 +11,8 @@ Each cps call is a short-lived client; the session and its state survive between
                                                     with --ref: red only in REF, green only in the first object, yellow both
   cps images                                        image names usable with -i, -c and image()
   cps measure [LABELS] [--ref REF] [-c CHANNEL ...]  light measurements, merges/splits vs REF
-  cps settings [MODULE]                             visible settings with attribute names
+                                                    (REF defaults to LABELS if it is an object set, else committed)
+  cps settings [MODULE]                             visible settings with attribute names; flags inert ones
   cps stop
 
 OBJECTS, LABELS and REF are object-set names, names of arrays (or try_ipo results) in the namespace,
@@ -93,6 +94,8 @@ def cmd_start(a):
     if alive():
         print("already running")
         return print_status(call("status"))
+    if not (ROOT / "data").is_dir():
+        sys.exit("cps: data/ is missing; run ./scripts/fetch_data.py first")
     RUNTIME.mkdir(exist_ok=True)
     subprocess.run(["podman", "rm", "-f", NAME], capture_output=True)
     cmd = [str(ROOT / "cprun.sh"), "python", "-m", "codemode.session", container_path(a.pipeline),
@@ -155,9 +158,11 @@ def cmd_measure(a):
     if not r.get("ok"):
         fail(r)
     v = r["vs_ref"]
-    print(f"{a.labels or 'committed'}: {r['count']} objects vs ref {a.ref or 'committed'} {v['ref_count']} | "
+    print(f"{a.labels or 'committed'}: {r['count']} objects vs ref {r['ref']} {v['ref_count']} | "
           f"splits {v['splits']} merges {v['merges']} lost {v['lost']} gained {v['gained']}"
           + (" | identical" if v["identical"] else "") + f" | {r['seconds']}s")
+    if r.get("warning"):
+        print("  warning: " + r["warning"])
     for k in ("split_at", "merge_at", "lost_at", "gained_at"):
         if v[k]:
             print(f"  {k} (y,x): " + " ".join(f"({y},{x})" for y, x in v[k]))

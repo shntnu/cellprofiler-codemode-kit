@@ -144,7 +144,7 @@ def test_measure_matches_measurement_modules(session):
     for c in ("DNA", "Brightfield"):
         for f in ("MeanIntensity", "IntegratedIntensity"):
             assert numpy.array_equal(o[f"{f}_{c}"], m.get_current_measurement("Nuclei", f"Intensity_{f}_{c}"))
-    assert r["vs_ref"]["ref_count"] == session.counts()["NucleiIncludingEdges"]
+    assert r["ref"] == "Nuclei" and r["vs_ref"]["identical"]
 
 
 def test_measure_finds_known_split(session):
@@ -222,3 +222,18 @@ def test_status_lists_images_and_view_ref(session):
     yellow = (px[..., 0] > 0.9) & (px[..., 1] > 0.9) & (px[..., 2] < 0.3)
     assert green.any() and yellow.any()  # the split adds a new outline; unchanged outlines are shared
     assert session.measure("cand", ref="committed")["vs_ref"]["splits"] == 1
+
+
+def test_measure_ref_defaults_and_inert_settings(session):
+    r = session.measure("Cells")
+    assert r["ref"] == "Cells" and r["vs_ref"]["identical"] and "warning" not in r
+    r = session.measure("Cells", ref="Nuclei")
+    assert "different object sets" in r["warning"]
+    session.execute("cand = try_ipo(threshold_correction_factor=1.1)")
+    assert session.measure("cand")["ref"] == "NucleiIncludingEdges"
+    text = session.settings()
+    line = next(x for x in text.splitlines() if x.strip().startswith("smoothing_filter_size"))
+    assert "no effect" in line  # this pipeline unclumps by Shape
+    assert numpy.array_equal(session.try_ipo(smoothing_filter_size=30)["labels"], session.labels("NucleiIncludingEdges"))
+    assert "maxima_suppression_size" in text and "no effect" not in next(
+        x for x in text.splitlines() if x.strip().startswith("maxima_suppression_size"))

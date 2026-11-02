@@ -7,5 +7,6 @@ set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 exec podman run --rm -i ${CPRUN_PODMAN_ARGS:-} --network=none --userns=keep-id --cpus 4 --memory 8g \
   -v "$here":/work:Z -v "$here/data":/fixture/assets:ro,Z -e PYTHONPATH=/work \
+  -e JAVA_TOOL_OPTIONS=-XX:ErrorFile=/work/.cps/hs_err_pid%p.log \
   "${CP_IMAGE:-localhost/cellprofiler-codemode-kit:49987452}" \
   pixi run --manifest-path /opt/cp/pixi.toml --locked -e dev "$@"

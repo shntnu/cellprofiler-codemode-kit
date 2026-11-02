@@ -55,18 +55,20 @@ The last three commands are one try, measure and view cycle.
 `./cps stop` ends the session.
 `./cps --help` lists every command.
 
-Expected times on a 4-CPU limit:
+Expected times with the 4-CPU limit, as measured on two hosts:
 
 | Step | Time |
 |---|---|
-| Image build | about 15 min |
+| Image build from scratch | 3-15 min, mostly the pixi install; depends on network speed |
 | Data fetch | under a minute |
 | First container start after a build (Podman copies the image for `keep-id`) | about 2.5 min, once |
-| `./cps start` | 15-30 s |
+| `./cps start` | 15-50 s |
 | `./cps start --full` (also runs every measurement module) | 95-115 s |
-| One try, measure and view cycle | under 1 s |
+| `headless_run` of a saved pipeline | 2-2.5 min |
+| One try, measure and view cycle | about 0.5 s warm; about 1 s for the first |
+| Container tests | 35-60 s |
 
-These were measured with a 4-CPU limit on a shared host.
+A build that finishes in seconds and prints `Using cache` for every step reused layers from an earlier build; add `--no-cache` to build from scratch.
 The session itself uses about 0.7 GB of memory.
 
 ## How it works
@@ -102,9 +104,14 @@ Run it while no session is running.
 - CellProfiler `main` is a pre-release, and it re-serializes pipelines on save (see `fixture/SOURCE.md`).
 - Bio-Formats is pinned by checking the jar after download.
   If Maven's `RELEASE` for `ome:formats-gpl` moves past 9.0.0-rc2, the image build fails at that check instead of silently using a different version.
-- The daemon serves one request at a time, so a long `exec` (for example `headless_run`, about 2 min) blocks other clients.
+- The daemon serves one request at a time, so a long `exec` (for example `headless_run`) blocks other clients.
 - Agent code runs with the session's privileges inside the container.
   `SystemExit` and `KeyboardInterrupt` are caught, but `os._exit()` ends the daemon.
-- A CellProfiler 5 headless run logs one `Unable to decode object measurement` error from `hdf5_dict` during export; the CSVs are complete.
+- Logs contain two kinds of error lines that are harmless here: - Bio-Formats prints `"loci.formats.in.<Name>Reader" is not valid.` for a few optional readers it cannot load.
+  They are not used for these TIFFs. - A headless run logs one `Unable to decode object measurement` error from `hdf5_dict` during export.
+  The CSVs are complete.
+- `cps stop` exits the daemon without the JVM's own teardown.
+  A JPype crash in that teardown once left an `hs_err_pid*.log` in the repo root; it was not reproduced in 6 later stops.
+  Any JVM crash log now goes to `.cps/` (`-XX:ErrorFile` in `cprun.sh`), and `hs_err_pid*.log` is gitignored.
 - This repo has no license file of its own yet.
   The fixture's sources and terms are in `fixture/SOURCE.md`.

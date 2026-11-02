@@ -113,6 +113,28 @@ def ipo_kwargs(module, measurements=None):
     )
 
 
+def ipo_inert_settings(m):
+    """Settings that cannot change IdentifyPrimaryObjects labels under its other current settings.
+
+    From cellprofiler_library separate_neighboring_objects: the smoothed image only feeds Intensity
+    unclumping; Shape unclumping finds maxima on a distance transform of the thresholded objects.
+    """
+    unclump, watershed = m.unclump_method.value, m.watershed_method.value
+    if "None" in (unclump, watershed):
+        why = f"declumping is off ({'unclump' if unclump == 'None' else 'watershed'} method None)"
+        return {a: why for a in ("watershed_method", "automatic_smoothing", "smoothing_filter_size",
+                                 "automatic_suppression", "maxima_suppression_size", "low_res_maxima")}
+    out = {}
+    if unclump == "Shape":
+        why = "smoothing only affects Intensity unclumping; Shape uses a distance transform"
+        out.update(automatic_smoothing=why, smoothing_filter_size=why)
+    if m.automatic_suppression.value:
+        out["maxima_suppression_size"] = "automatic suppression is on"
+    if m.size_range.min <= 10:
+        out["low_res_maxima"] = "only used when the minimum diameter is above 10"
+    return out
+
+
 def snapshot(pipeline):
     """Every module's setting value texts, keyed by module number."""
     return {m.module_num: [s.value_text for s in m.settings()] for m in pipeline.modules(False)}
@@ -307,10 +329,13 @@ class Session:
             for key, fn in COMMITTABLE.items():
                 for setting, _ in fn(m, 1):
                     keys.setdefault(id(setting), []).append(key)
+        inert = ipo_inert_settings(m) if m.module_name == "IdentifyPrimaryObjects" else {}
         lines = [f"Module {m.module_num} {m.module_name}"]
         for s_ in m.visible_settings():
             key = ",".join(keys.get(id(s_), []))
-            lines.append(f"  {attrs.get(id(s_), '?')} | {s_.text} = {s_.value_text}" + (f"  [commit_ipo: {key}]" if key else ""))
+            attr = attrs.get(id(s_), "?")
+            lines.append(f"  {attr} | {s_.text} = {s_.value_text}" + (f"  [commit_ipo: {key}]" if key else "")
+                         + (f"  (no effect: {inert[attr]})" if attr in inert else ""))
         return "\n".join(lines)
 
     # -- IdentifyPrimaryObjects code-mode helpers -------------------------
@@ -401,8 +426,9 @@ class Session:
     def measure(self, labels=None, ref=None, channels=(), objects_name=None, per_object=False):
         """CellProfiler's own size, shape and intensity features for a labels array, plus merges and splits.
 
-        labels and ref: object-set name, namespace name, array, or try_ipo result; both default to the
-        committed IdentifyPrimaryObjects objects. Intensity is on the IPO input image plus `channels`.
+        labels and ref: object-set name, namespace name, array, or try_ipo result. labels defaults to the
+        committed IdentifyPrimaryObjects objects; ref defaults to labels itself when labels names an object
+        set, otherwise to the committed IdentifyPrimaryObjects objects. Intensity is on the IPO input image plus `channels`.
         Uses cellprofiler_library's MeasureObjectSizeShape and MeasureObjectIntensity functions the way
         the modules call them; no pipeline module runs.
         """
@@ -430,7 +456,13 @@ class Session:
         o = res["objects"]
         pct = lambda x: [round(float(v), 4) for v in numpy.percentile(x, [10, 50, 90])] if len(x) else []
         res["summary"] = {k: pct(v) for k, v in o.items()}
-        reference = self.labels(module.y_name.value if ref is None else ref)
+        objset = lambda x: isinstance(x, str) and x in self.object_set.get_object_names()
+        if ref is None:  # an object set compares with itself; anything else with the committed IPO objects
+            ref = labels if objset(labels) else module.y_name.value
+        reference = self.labels(ref)
+        res["ref"] = ref if isinstance(ref, str) else "array"
+        if objset(labels) and objset(ref) and labels != ref:
+            res["warning"] = f"comparing different object sets ({labels} vs {ref}); splits and merges mix compartments"
         res["vs_ref"] = compare_labels(reference, lab)
         res["seconds"] = round(time.time() - t0, 3)
         if not per_object:
@@ -645,6 +677,17 @@ def serve_socket(session, path):
             return
 
 
+def exit_now(*_):
+    """End the daemon without interpreter or JVM teardown.
+
+    A JPype SIGSEGV during JVM teardown at daemon exit was seen once (hs_err_pid*.log); nothing in the
+    session needs flushing, so skip the teardown entirely.
+    """
+    sys.stdout.flush()
+    sys.stderr.flush()
+    os._exit(0)
+
+
 def main():
     import argparse
 
@@ -663,8 +706,12 @@ def main():
     through = None if (a.full or not a.socket) else "objects"
     session = Session(a.pipeline, a.input, a.output, a.record, load_through=through)
     if a.socket:
+        import signal
+
+        signal.signal(signal.SIGTERM, exit_now)
         print(json.dumps({"ready": True, "pid": session.pid, "load_s": round(session.timings["full_field_s"], 2)}), flush=True)
-        return serve_socket(session, a.socket)
+        serve_socket(session, a.socket)
+        exit_now()
     proto.write(json.dumps({"ready": True, "pid": session.pid, "load_s": round(session.timings["full_field_s"], 2)}) + "\n")
     proto.flush()
     serve(session, sys.stdin, proto)

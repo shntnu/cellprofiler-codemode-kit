@@ -30,7 +30,10 @@ LABELS, OBJECTS and REF accept three kinds of name:
 - a namespace variable holding a label array or a `try_ipo` result;
 - `committed`, the IdentifyPrimaryObjects objects as they are now.
 
-LABELS and REF default to `committed`.
+LABELS defaults to `committed`.
+REF defaults to LABELS itself when LABELS names an object set; for example, `measure Cells` describes the cells and reports them identical to themselves.
+Otherwise REF defaults to `committed`, so a `try_ipo` candidate is compared with the committed nuclei.
+`measure` warns when LABELS and REF are different object sets, because splits and merges between compartments are not meaningful.
 In `view --ref`, red outlines are only in REF, green only in the candidate, and yellow in both.
 
 Use a heredoc for multi-line code:
@@ -53,13 +56,22 @@ EOF
   It returns the settings changes and the counts before and after.
 - `undo()` reverts the last commit and re-runs; `settings_diff()` diffs against the original pipeline.
 - `save_as(path)` writes the current pipeline.
-  `headless_run(pipeline_path, output_dir)` runs `cellprofiler -c -r` on a saved pipeline in a separate process, writing the pipeline's CSVs; it takes about 2 minutes.
+  `headless_run(pipeline_path, output_dir)` runs `cellprofiler -c -r` on a saved pipeline in a separate process, writing the pipeline's CSVs; it takes 2-2.5 minutes.
 - `run_from(module, through=None)` re-runs part of the pipeline.
   Commits skip the measurement modules (12 onward), which then stay stale; `session.stale_from` names the first stale module, and `run_from(session.stale_from, through=None)` refreshes them in about 85 s.
 - `counts()`, `image(name)`, `labels(name)`, `settings()`, `modules()`, `pipeline`, `measurements` and `object_set` give direct access.
   `np`, `scipy`, `skimage` and `cellprofiler_library` are imported. pandas is not installed; use `csv`.
 - Names persist between `exec` calls.
   Paths inside the session start at `/work`, which is the repo root on the host; write files under `/work/.cps/`.
+
+## Settings that do nothing here
+
+`./cps settings` marks settings that cannot change the labels under the module's other current settings.
+In this pipeline IdentifyPrimaryObjects unclumps by Shape, which finds maxima on a distance transform of the thresholded objects.
+So `smoothing_filter_size` (and its automatic switch) has no effect: the smoothed image is only used for Intensity unclumping.
+With Shape unclumping, `try_ipo(smoothing_filter_size=...)` returns labels identical to the committed ones for any value.
+It matters again if you also change `unclump_method` to `Intensity`.
+Check this list before reporting that a setting "made no difference".
 
 ## How to iterate
 

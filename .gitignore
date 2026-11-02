@@ -1,3 +1,4 @@
 data/
 .cps/
 __pycache__/
+hs_err_pid*.log
