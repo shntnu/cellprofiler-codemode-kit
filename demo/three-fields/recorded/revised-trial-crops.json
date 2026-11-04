@@ -1,0 +1,194 @@
+[
+  {
+    "center_yx": [
+      87,
+      561
+    ],
+    "crop_y0y1x0x1": [
+      17,
+      157,
+      491,
+      631
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge0-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge0-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 256 labels (red where it differs)",
+        "labels[0]: 250 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "center_yx": [
+      101,
+      32
+    ],
+    "crop_y0y1x0x1": [
+      31,
+      171,
+      0,
+      102
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge1-raw.png",
+      "shape": [
+        140,
+        102
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge1-comparison.png",
+      "shape": [
+        140,
+        102
+      ],
+      "legend": [
+        "ref labels[ref]: 256 labels (red where it differs)",
+        "labels[0]: 250 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "center_yx": [
+      245,
+      504
+    ],
+    "crop_y0y1x0x1": [
+      175,
+      315,
+      434,
+      574
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge2-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge2-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 256 labels (red where it differs)",
+        "labels[0]: 250 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "center_yx": [
+      742,
+      95
+    ],
+    "crop_y0y1x0x1": [
+      672,
+      812,
+      25,
+      165
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge3-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge3-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 256 labels (red where it differs)",
+        "labels[0]: 250 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "center_yx": [
+      737,
+      687
+    ],
+    "crop_y0y1x0x1": [
+      667,
+      807,
+      617,
+      757
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge4-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge4-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 256 labels (red where it differs)",
+        "labels[0]: 250 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "center_yx": [
+      907,
+      1020
+    ],
+    "crop_y0y1x0x1": [
+      837,
+      977,
+      950,
+      1080
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge5-raw.png",
+      "shape": [
+        140,
+        130
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge5-comparison.png",
+      "shape": [
+        140,
+        130
+      ],
+      "legend": [
+        "ref labels[ref]: 256 labels (red where it differs)",
+        "labels[0]: 250 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  }
+]

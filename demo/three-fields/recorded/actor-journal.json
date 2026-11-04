@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "actor": "Codex coding agent operating through the coding-agent harness and cps shell commands",
+  "brief_kind": "Scripted demonstration brief, not a quotation of a new user message",
+  "brief": "Can we reduce apparent nuclear oversplitting without merging neighboring nuclei? Compare the same IPO candidates across three fields, inspect the evidence, revise or reject a failed idea, demonstrate commit and undo, and save the selected pipeline.",
+  "sequence": [
+    {
+      "stage": "Baseline",
+      "evidence": "baseline.json; views/baseline-overview.png",
+      "observation": "Primary counts are 73,256,58. A01_s2 is visibly denser with more touching clusters. The overview does not establish global oversplitting."
+    },
+    {
+      "stage": "First trials",
+      "evidence": "tc11.json; supp12.json; views/first-trials-crops.png",
+      "observation": "Threshold correction1.1 causes mixed splits and merges. Suppression12 reduces counts but merges visibly distinct bright neighbors in A01_s1 and A02_s1."
+    },
+    {
+      "stage": "Revision",
+      "evidence": "supp10.json; views/revised-trial-crops.png",
+      "observation": "Suppression10 restores exact baseline labels in sparse fields but still creates six merges in dense A01_s2. The six locations have mixed or ambiguous effects."
+    },
+    {
+      "stage": "Decision",
+      "evidence": "selection.json",
+      "observation": "Retain baseline pending expert review, without claiming it is optimal."
+    },
+    {
+      "stage": "Commit and undo",
+      "evidence": "commit-undo.json",
+      "observation": "Controlled threshold1.1 commits match library labels in all three fields. Undo restores all five object label arrays and the original settings in each field."
+    },
+    {
+      "stage": "Saved state",
+      "evidence": "Selected.cppipe; expected.json",
+      "observation": "All three field pipelines have identical settings. Exported expected values contain171 finite feature vectors for independent validation."
+    }
+  ],
+  "revised_candidate_observations": [
+    {
+      "center_yx": [
+        87,
+        561
+      ],
+      "interpretation": "Complex touching cluster; the removed boundary may join distinct structures. Expert review needed."
+    },
+    {
+      "center_yx": [
+        101,
+        32
+      ],
+      "interpretation": "The removed boundary lies within an apparently continuous elongated nuclear shape; a potential oversplit correction."
+    },
+    {
+      "center_yx": [
+        245,
+        504
+      ],
+      "interpretation": "Bilobed shape with a removed internal boundary; biological identity is ambiguous from this image."
+    },
+    {
+      "center_yx": [
+        742,
+        95
+      ],
+      "interpretation": "Two bright structures are separated by a dark cleft; merging them is plausibly unwanted."
+    },
+    {
+      "center_yx": [
+        737,
+        687
+      ],
+      "interpretation": "The removed boundary lies within a continuous-looking nuclear shape; a potential oversplit correction."
+    },
+    {
+      "center_yx": [
+        907,
+        1020
+      ],
+      "interpretation": "The removed boundary lies within a continuous-looking elongated shape; a potential oversplit correction."
+    }
+  ],
+  "scope": [
+    "Three preselected public fields from one plate, one pipeline, IdentifyPrimaryObjects only.",
+    "Image interpretations are tentative; there are no expert ground-truth annotations or segmentation quality scores.",
+    "The code replay repeats the recorded actions and selection; it is not a fresh autonomous agent run."
+  ],
+  "input_sha256": {
+    "fixture/JUMP_analysis_v3.cppipe": "1f11201c7a46dcc730fcbb9f8a72e25337505de8151edc4d16bca3a88c4a8509",
+    "fixture/load_data_with_illum.csv": "c1cfdfeabd551e2a6de6c3bad8b44deaa03964845a5ac238c26ebc5ab25d4c2f",
+    "fixture/three-fields/load_data_with_illum.csv": "fbe8133b6bfe0b28bbd1ac027c6356fec7b3c9b8ee808f250825000927f2faaf",
+    "fixture/three-fields/A01_s1/load_data_with_illum.csv": "59a9a819f219e038b17147ea402811c7a0ca6d58bd495f980899742bc43d3365",
+    "fixture/three-fields/A01_s2/load_data_with_illum.csv": "513663e4043bc8df38c8577e1975ec82d4ccf21a54215e7d032341bf982d263d",
+    "fixture/three-fields/A02_s1/load_data_with_illum.csv": "00d9bed1db8e566bf8b4dcf54638f9a4668e2a4b7493ac7edda34b06a1e6bbab"
+  },
+  "executed_code": [
+    {
+      "file": "01-initialize.py",
+      "sha256": "bda6b52a1d67f845d8ed479919a1d56c1ba026a8646246ceb1e388950b93aa34"
+    },
+    {
+      "file": "02-overview.py",
+      "sha256": "9b681fed903c171edc014589e273112ab4138798b1aec0d4ecf11d5ce09cbcac"
+    },
+    {
+      "file": "03-first-trials.py",
+      "sha256": "257b5f49b62558daba1ab4e029e5291d0c3a6f7c1e047400e77878e4a38763cd"
+    },
+    {
+      "file": "04-inspect-changes.py",
+      "sha256": "58679ffcd3517286b377586cbfb0ff48b619a592f46f34e3c409eef87fef3d78"
+    },
+    {
+      "file": "05-revised-trial.py",
+      "sha256": "cf684cbb1079ec35de8789c4f40de04f36cba999063dcf6fb41faddd4132aa60"
+    },
+    {
+      "file": "06-review-revised.py",
+      "sha256": "892a3e837e22171c71c3ffd561d70046c3dd1ebd64a4217ff19c94773959e5d1"
+    },
+    {
+      "file": "07-commit-undo-save.py",
+      "sha256": "11ca65a8b5fb9927f4f4e0dd490a1b4763a3729715d085825f2ccf1e6532fa1d"
+    },
+    {
+      "file": "08-figures-and-replay-guards.py",
+      "sha256": "4a7bc7a86aa94d01ff012d33d190fb56721f69cde3673bd1daa92073dd009d33"
+    },
+    {
+      "file": "09-metadata-proof.py",
+      "sha256": "9e32b4faf19e6b46a55f7a5a190f4df9ec8341ab9204ee4fa0c1393bd44d24b7"
+    }
+  ],
+  "source_snapshots": [
+    "explore-initial.py",
+    "explore-executed.py"
+  ],
+  "replay_source_sha256": "faf5301c16dea420f703ad02d0d0d9eed3357366ec2eec3ebcb7f7a04f8fff38",
+  "pid": 18,
+  "started": "2026-11-04T13:06:10",
+  "native_status": "Session remains alive for independent verification; no restart occurred during exploration.",
+  "native_metadata_proof": "metadata-proof.json"
+}

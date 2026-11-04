@@ -1,0 +1,49 @@
+{
+  "comparison": "exact finite numeric equality",
+  "count_comparisons": 15,
+  "feature_vectors_compared": 171,
+  "fields": {
+    "A01_s1": {
+      "counts": {
+        "Cells": 66,
+        "CellsIncludingEdges": 73,
+        "Cytoplasm": 66,
+        "Nuclei": 66,
+        "NucleiIncludingEdges": 73
+      },
+      "image_number": 1
+    },
+    "A01_s2": {
+      "counts": {
+        "Cells": 226,
+        "CellsIncludingEdges": 256,
+        "Cytoplasm": 226,
+        "Nuclei": 226,
+        "NucleiIncludingEdges": 256
+      },
+      "image_number": 2
+    },
+    "A02_s1": {
+      "counts": {
+        "Cells": 52,
+        "CellsIncludingEdges": 58,
+        "Cytoplasm": 52,
+        "Nuclei": 52,
+        "NucleiIncludingEdges": 58
+      },
+      "image_number": 3
+    }
+  },
+  "max_abs_difference": 0.0,
+  "module_error_columns_checked": 37,
+  "sha256": {
+    "Cells.csv": "bb8a497f919994e378b2a91e57a516b8b53c3961e48991e6c15a794a8e8d357c",
+    "Cytoplasm.csv": "d069653b3387baea99260d44b08dac2f4653f794e3124d02644d216c2a4f503a",
+    "Image.csv": "72ec7faeb46b09207131d966c551886ecc9ce748e33d06d53a924e4bbf691f00",
+    "Nuclei.csv": "b23b6e394fccc5faf3c8b2dd4036aa2073ecd798fa21795536fa00692e6a1f8c",
+    "Selected.cppipe": "8015e5631090cb70aa1fcfbdea305490bcbe0960a5349a6742eb5bd435036658",
+    "expected.json": "6107455452a7f7fc950b11adf7f387674d45b0dfdb268054414149475953c841"
+  },
+  "success": true,
+  "values_compared": 19608
+}

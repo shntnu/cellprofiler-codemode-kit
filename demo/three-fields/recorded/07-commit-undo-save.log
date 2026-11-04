@@ -1,0 +1,29 @@
+{
+  "saved": "/work/.cps/three-field-demo/Selected.cppipe",
+  "expected": "/work/.cps/three-field-demo/expected.json",
+  "counts": {
+    "A01_s1": {
+      "NucleiIncludingEdges": 73,
+      "CellsIncludingEdges": 73,
+      "Nuclei": 66,
+      "Cells": 66,
+      "Cytoplasm": 66
+    },
+    "A01_s2": {
+      "NucleiIncludingEdges": 256,
+      "CellsIncludingEdges": 256,
+      "Nuclei": 226,
+      "Cells": 226,
+      "Cytoplasm": 226
+    },
+    "A02_s1": {
+      "NucleiIncludingEdges": 58,
+      "CellsIncludingEdges": 58,
+      "Nuclei": 52,
+      "Cells": 52,
+      "Cytoplasm": 52
+    }
+  },
+  "pid": 18,
+  "pipeline_sha256": "8015e5631090cb70aa1fcfbdea305490bcbe0960a5349a6742eb5bd435036658"
+}

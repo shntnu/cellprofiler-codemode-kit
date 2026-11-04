@@ -1,0 +1,239 @@
+{
+  "pid": 18,
+  "fields": {
+    "A01_s1": {
+      "commit": {
+        "changes": [
+          {
+            "module": 8,
+            "module_name": "IdentifyPrimaryObjects",
+            "setting": "Threshold correction factor",
+            "old": "1",
+            "new": "1.1"
+          }
+        ],
+        "rerun": {
+          "from_module": 8,
+          "through_module": 11,
+          "modules_run": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "seconds": 1.258,
+          "stale_from": 12
+        },
+        "counts_before": {
+          "NucleiIncludingEdges": 73,
+          "CellsIncludingEdges": 73,
+          "Nuclei": 66,
+          "Cells": 66,
+          "Cytoplasm": 66
+        },
+        "counts_after": {
+          "NucleiIncludingEdges": 74,
+          "CellsIncludingEdges": 74,
+          "Nuclei": 67,
+          "Cells": 67,
+          "Cytoplasm": 67
+        }
+      },
+      "undo": {
+        "changes": [
+          {
+            "module": 8,
+            "module_name": "IdentifyPrimaryObjects",
+            "setting": "Threshold correction factor",
+            "old": "1.1",
+            "new": "1"
+          }
+        ],
+        "rerun": {
+          "from_module": 8,
+          "through_module": 11,
+          "modules_run": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "seconds": 1.142,
+          "stale_from": 12
+        },
+        "counts_before": {
+          "NucleiIncludingEdges": 74,
+          "CellsIncludingEdges": 74,
+          "Nuclei": 67,
+          "Cells": 67,
+          "Cytoplasm": 67
+        },
+        "counts_after": {
+          "NucleiIncludingEdges": 73,
+          "CellsIncludingEdges": 73,
+          "Nuclei": 66,
+          "Cells": 66,
+          "Cytoplasm": 66
+        }
+      },
+      "library_commit_labels_equal": true,
+      "undo_restores_all_object_labels": true
+    },
+    "A01_s2": {
+      "commit": {
+        "changes": [
+          {
+            "module": 8,
+            "module_name": "IdentifyPrimaryObjects",
+            "setting": "Threshold correction factor",
+            "old": "1",
+            "new": "1.1"
+          }
+        ],
+        "rerun": {
+          "from_module": 8,
+          "through_module": 11,
+          "modules_run": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "seconds": 2.786,
+          "stale_from": 12
+        },
+        "counts_before": {
+          "NucleiIncludingEdges": 256,
+          "CellsIncludingEdges": 256,
+          "Nuclei": 226,
+          "Cells": 226,
+          "Cytoplasm": 226
+        },
+        "counts_after": {
+          "NucleiIncludingEdges": 251,
+          "CellsIncludingEdges": 251,
+          "Nuclei": 222,
+          "Cells": 222,
+          "Cytoplasm": 222
+        }
+      },
+      "undo": {
+        "changes": [
+          {
+            "module": 8,
+            "module_name": "IdentifyPrimaryObjects",
+            "setting": "Threshold correction factor",
+            "old": "1.1",
+            "new": "1"
+          }
+        ],
+        "rerun": {
+          "from_module": 8,
+          "through_module": 11,
+          "modules_run": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "seconds": 2.72,
+          "stale_from": 12
+        },
+        "counts_before": {
+          "NucleiIncludingEdges": 251,
+          "CellsIncludingEdges": 251,
+          "Nuclei": 222,
+          "Cells": 222,
+          "Cytoplasm": 222
+        },
+        "counts_after": {
+          "NucleiIncludingEdges": 256,
+          "CellsIncludingEdges": 256,
+          "Nuclei": 226,
+          "Cells": 226,
+          "Cytoplasm": 226
+        }
+      },
+      "library_commit_labels_equal": true,
+      "undo_restores_all_object_labels": true
+    },
+    "A02_s1": {
+      "commit": {
+        "changes": [
+          {
+            "module": 8,
+            "module_name": "IdentifyPrimaryObjects",
+            "setting": "Threshold correction factor",
+            "old": "1",
+            "new": "1.1"
+          }
+        ],
+        "rerun": {
+          "from_module": 8,
+          "through_module": 11,
+          "modules_run": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "seconds": 1.047,
+          "stale_from": 12
+        },
+        "counts_before": {
+          "NucleiIncludingEdges": 58,
+          "CellsIncludingEdges": 58,
+          "Nuclei": 52,
+          "Cells": 52,
+          "Cytoplasm": 52
+        },
+        "counts_after": {
+          "NucleiIncludingEdges": 58,
+          "CellsIncludingEdges": 58,
+          "Nuclei": 52,
+          "Cells": 52,
+          "Cytoplasm": 52
+        }
+      },
+      "undo": {
+        "changes": [
+          {
+            "module": 8,
+            "module_name": "IdentifyPrimaryObjects",
+            "setting": "Threshold correction factor",
+            "old": "1.1",
+            "new": "1"
+          }
+        ],
+        "rerun": {
+          "from_module": 8,
+          "through_module": 11,
+          "modules_run": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "seconds": 1.048,
+          "stale_from": 12
+        },
+        "counts_before": {
+          "NucleiIncludingEdges": 58,
+          "CellsIncludingEdges": 58,
+          "Nuclei": 52,
+          "Cells": 52,
+          "Cytoplasm": 52
+        },
+        "counts_after": {
+          "NucleiIncludingEdges": 58,
+          "CellsIncludingEdges": 58,
+          "Nuclei": 52,
+          "Cells": 52,
+          "Cytoplasm": 52
+        }
+      },
+      "library_commit_labels_equal": true,
+      "undo_restores_all_object_labels": true
+    }
+  }
+}

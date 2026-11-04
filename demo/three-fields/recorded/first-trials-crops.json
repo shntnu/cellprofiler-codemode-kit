@@ -1,0 +1,212 @@
+[
+  {
+    "field": "A01_s1",
+    "candidate": "tc11",
+    "change": "split",
+    "center_yx": [
+      804,
+      783
+    ],
+    "crop_y0y1x0x1": [
+      734,
+      874,
+      713,
+      853
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s1-tc11-split-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s1-tc11-split-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 73 labels (red where it differs)",
+        "labels[0]: 74 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "field": "A01_s2",
+    "candidate": "tc11",
+    "change": "split",
+    "center_yx": [
+      713,
+      136
+    ],
+    "crop_y0y1x0x1": [
+      643,
+      783,
+      66,
+      206
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-tc11-split-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-tc11-split-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 256 labels (red where it differs)",
+        "labels[0]: 251 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "field": "A01_s2",
+    "candidate": "tc11",
+    "change": "merge",
+    "center_yx": [
+      126,
+      804
+    ],
+    "crop_y0y1x0x1": [
+      56,
+      196,
+      734,
+      874
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-tc11-merge-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-tc11-merge-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 256 labels (red where it differs)",
+        "labels[0]: 251 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "field": "A01_s1",
+    "candidate": "supp12",
+    "change": "merge",
+    "center_yx": [
+      242,
+      257
+    ],
+    "crop_y0y1x0x1": [
+      172,
+      312,
+      187,
+      327
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s1-supp12-merge-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s1-supp12-merge-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 73 labels (red where it differs)",
+        "labels[0]: 72 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "field": "A01_s2",
+    "candidate": "supp12",
+    "change": "merge",
+    "center_yx": [
+      247,
+      195
+    ],
+    "crop_y0y1x0x1": [
+      177,
+      317,
+      125,
+      265
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp12-merge-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A01_s2-supp12-merge-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 256 labels (red where it differs)",
+        "labels[0]: 249 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  },
+  {
+    "field": "A02_s1",
+    "candidate": "supp12",
+    "change": "merge",
+    "center_yx": [
+      351,
+      945
+    ],
+    "crop_y0y1x0x1": [
+      281,
+      421,
+      875,
+      1015
+    ],
+    "raw": {
+      "path": "/work/.cps/three-field-demo/views/A02_s1-supp12-merge-raw.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": []
+    },
+    "comparison": {
+      "path": "/work/.cps/three-field-demo/views/A02_s1-supp12-merge-comparison.png",
+      "shape": [
+        140,
+        140
+      ],
+      "legend": [
+        "ref labels[ref]: 58 labels (red where it differs)",
+        "labels[0]: 57 labels (green where it differs)",
+        "yellow: outlines in both"
+      ]
+    }
+  }
+]

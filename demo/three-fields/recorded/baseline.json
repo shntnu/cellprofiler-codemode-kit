@@ -1,0 +1,202 @@
+{
+  "pid": 18,
+  "started": "2026-11-04T13:06:10",
+  "cellprofiler_version": "5.0.0.dev792",
+  "fields": {
+    "A01_s1": {
+      "counts": {
+        "NucleiIncludingEdges": 73,
+        "CellsIncludingEdges": 73,
+        "Nuclei": 66,
+        "Cells": 66,
+        "Cytoplasm": 66
+      },
+      "measurement": {
+        "count": 73,
+        "summary": {
+          "Area": [
+            773.8,
+            1125.0,
+            1446.2
+          ],
+          "Solidity": [
+            0.9613,
+            0.9721,
+            0.9784
+          ],
+          "Eccentricity": [
+            0.4989,
+            0.7435,
+            0.8788
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0361,
+            0.049,
+            0.0574
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.8265,
+            53.2485,
+            75.3744
+          ]
+        },
+        "ref": "NucleiIncludingEdges",
+        "vs_ref": {
+          "ref_count": 73,
+          "count": 73,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.189
+      },
+      "view": {
+        "path": "/work/.cps/three-field-demo/views/A01_s1-baseline.png",
+        "shape": [
+          1080,
+          1080
+        ],
+        "legend": [
+          "NucleiIncludingEdges: 73 labels"
+        ]
+      },
+      "library_module_labels_equal": true
+    },
+    "A01_s2": {
+      "counts": {
+        "NucleiIncludingEdges": 256,
+        "CellsIncludingEdges": 256,
+        "Nuclei": 226,
+        "Cells": 226,
+        "Cytoplasm": 226
+      },
+      "measurement": {
+        "count": 256,
+        "summary": {
+          "Area": [
+            487.5,
+            979.5,
+            1389.5
+          ],
+          "Solidity": [
+            0.9341,
+            0.9705,
+            0.9776
+          ],
+          "Eccentricity": [
+            0.541,
+            0.7572,
+            0.8577
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.038,
+            0.049,
+            0.0675
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            25.7195,
+            44.4096,
+            79.3375
+          ]
+        },
+        "ref": "NucleiIncludingEdges",
+        "vs_ref": {
+          "ref_count": 256,
+          "count": 256,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.649
+      },
+      "view": {
+        "path": "/work/.cps/three-field-demo/views/A01_s2-baseline.png",
+        "shape": [
+          1080,
+          1080
+        ],
+        "legend": [
+          "NucleiIncludingEdges: 256 labels"
+        ]
+      },
+      "library_module_labels_equal": true
+    },
+    "A02_s1": {
+      "counts": {
+        "NucleiIncludingEdges": 58,
+        "CellsIncludingEdges": 58,
+        "Nuclei": 52,
+        "Cells": 52,
+        "Cytoplasm": 52
+      },
+      "measurement": {
+        "count": 58,
+        "summary": {
+          "Area": [
+            599.7,
+            1010.0,
+            1533.5
+          ],
+          "Solidity": [
+            0.9466,
+            0.9709,
+            0.9766
+          ],
+          "Eccentricity": [
+            0.6086,
+            0.8184,
+            0.8964
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0425,
+            0.0531,
+            0.0695
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.9617,
+            51.9645,
+            91.3581
+          ]
+        },
+        "ref": "NucleiIncludingEdges",
+        "vs_ref": {
+          "ref_count": 58,
+          "count": 58,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.151
+      },
+      "view": {
+        "path": "/work/.cps/three-field-demo/views/A02_s1-baseline.png",
+        "shape": [
+          1080,
+          1080
+        ],
+        "legend": [
+          "NucleiIncludingEdges: 58 labels"
+        ]
+      },
+      "library_module_labels_equal": true
+    }
+  }
+}

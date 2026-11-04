@@ -1,0 +1,253 @@
+[CP - WARNING] cellprofiler.modules.measureimagequality::prepare_run: Experiment-wide values for mean threshold, etc calculated by MeasureImageQuality may be incorrect if the run is split into subsets of images.
+[CP - WARNING] cellprofiler.modules.measureimagequality::prepare_run: Experiment-wide values for mean threshold, etc calculated by MeasureImageQuality may be incorrect if the run is split into subsets of images.
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Times reported are CPU and Wall-clock times for each module
+[CP - INFO] cellprofiler_core.utilities.java::start_java: Initializing Java Virtual Machine
+Picked up JAVA_TOOL_OPTIONS: -XX:ErrorFile=/work/.cps/hs_err_pid%p.log
+[ERROR] "loci.formats.in.MINCReader" is not valid.
+[ERROR] "loci.formats.in.VarianFDFReader" is not valid.
+[ERROR] "loci.formats.in.NiftiReader" is not valid.
+[ERROR] "loci.formats.in.AnalyzeReader" is not valid.
+[ERROR] "loci.formats.in.InveonReader" is not valid.
+[ERROR] "loci.formats.in.WlzReader" is not valid.
+[ERROR] "loci.formats.in.IonpathMIBITiffReader" is not valid.
+[ERROR] "loci.formats.in.BrukerReader" is not valid.
+TiffDelegateReader initializing /fixture/assets/r01c01f01p01-ch5sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f01p01-ch8sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f01p01-ch6sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f01p01-ch1sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f01p01-ch4sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f01p01-ch2sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f01p01-ch7sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f01p01-ch3sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:43 2026: Image # 1, module LoadData # 1: CPU_time = 5.91 secs, Wall_time = 2.24 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:45 2026: Image # 1, module CorrectIlluminationApply # 2: CPU_time = 0.16 secs, Wall_time = 0.11 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:46 2026: Image # 1, module MeasureImageQuality # 3: CPU_time = 5.99 secs, Wall_time = 6.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:52 2026: Image # 1, module MeasureImageQuality # 4: CPU_time = 0.23 secs, Wall_time = 0.23 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:52 2026: Image # 1, module CorrectIlluminationCalculate # 6: CPU_time = 0.58 secs, Wall_time = 0.44 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:52 2026: Image # 1, module CorrectIlluminationApply # 7: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:52 2026: Image # 1, module IdentifyPrimaryObjects # 8: CPU_time = 0.41 secs, Wall_time = 0.42 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:53 2026: Image # 1, module IdentifySecondaryObjects # 9: CPU_time = 0.37 secs, Wall_time = 0.37 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:53 2026: Image # 1, module FilterObjects # 10: CPU_time = 0.27 secs, Wall_time = 0.27 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:53 2026: Image # 1, module IdentifyTertiaryObjects # 11: CPU_time = 0.14 secs, Wall_time = 0.14 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:18:54 2026: Image # 1, module MeasureColocalization # 12: CPU_time = 12.87 secs, Wall_time = 12.95 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:19:06 2026: Image # 1, module MeasureGranularity # 13: CPU_time = 32.83 secs, Wall_time = 33.05 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:19:40 2026: Image # 1, module MeasureObjectIntensity # 14: CPU_time = 4.89 secs, Wall_time = 4.92 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:19:44 2026: Image # 1, module MeasureObjectNeighbors # 15: CPU_time = 0.37 secs, Wall_time = 0.37 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:19:45 2026: Image # 1, module MeasureObjectNeighbors # 16: CPU_time = 0.26 secs, Wall_time = 0.25 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:19:45 2026: Image # 1, module MeasureObjectNeighbors # 17: CPU_time = 0.28 secs, Wall_time = 0.29 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:19:45 2026: Image # 1, module MeasureObjectIntensityDistribution # 18: CPU_time = 3.06 secs, Wall_time = 3.03 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:19:48 2026: Image # 1, module MeasureObjectSizeShape # 19: CPU_time = 2.90 secs, Wall_time = 2.92 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:19:51 2026: Image # 1, module MeasureTexture # 20: CPU_time = 20.84 secs, Wall_time = 21.01 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:12 2026: Image # 1, module EnhanceOrSuppressFeatures # 21: CPU_time = 0.08 secs, Wall_time = 0.08 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:12 2026: Image # 1, module Threshold # 22: CPU_time = 0.29 secs, Wall_time = 0.28 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:13 2026: Image # 1, module MorphologicalSkeleton # 23: CPU_time = 0.01 secs, Wall_time = 0.01 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:13 2026: Image # 1, module MeasureObjectSkeleton # 24: CPU_time = 0.25 secs, Wall_time = 0.26 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:13 2026: Image # 1, module MeasureObjectIntensityDistribution # 25: CPU_time = 1.65 secs, Wall_time = 1.62 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module MaskImage # 26: CPU_time = 0.01 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module MaskImage # 27: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module MaskImage # 28: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module MaskImage # 29: CPU_time = 0.01 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module MaskImage # 30: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module MaskImage # 31: CPU_time = 0.01 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module MaskImage # 32: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module MaskImage # 33: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module MeasureImageIntensity # 34: CPU_time = 0.52 secs, Wall_time = 0.52 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module OverlayOutlines # 35: CPU_time = 0.03 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module OverlayOutlines # 36: CPU_time = 0.02 secs, Wall_time = 0.03 secs
+/opt/cp/src/frontend/cellprofiler/modules/saveimages.py:795: UserWarning: /work/.cps/three-field-demo/independent/output/outlines/A01_s1--nuclei_outlines.png is a low contrast image
+  skimage.io.imsave(filename, pixels, **save_kwargs)
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module SaveImages # 37: CPU_time = 0.09 secs, Wall_time = 0.09 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module SaveImages # 38: CPU_time = 0.02 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 1, module ExportToSpreadsheet # 39: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+TiffDelegateReader initializing /fixture/assets/r01c01f02p01-ch5sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f02p01-ch8sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f02p01-ch6sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f02p01-ch1sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f02p01-ch4sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f02p01-ch2sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f02p01-ch7sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c01f02p01-ch3sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:15 2026: Image # 2, module LoadData # 1: CPU_time = 1.64 secs, Wall_time = 0.93 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:16 2026: Image # 2, module CorrectIlluminationApply # 2: CPU_time = 0.01 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:16 2026: Image # 2, module MeasureImageQuality # 3: CPU_time = 5.70 secs, Wall_time = 5.74 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:22 2026: Image # 2, module MeasureImageQuality # 4: CPU_time = 0.20 secs, Wall_time = 0.20 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:22 2026: Image # 2, module CorrectIlluminationCalculate # 6: CPU_time = 0.38 secs, Wall_time = 0.38 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:23 2026: Image # 2, module CorrectIlluminationApply # 7: CPU_time = 0.01 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:23 2026: Image # 2, module IdentifyPrimaryObjects # 8: CPU_time = 0.72 secs, Wall_time = 0.73 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:23 2026: Image # 2, module IdentifySecondaryObjects # 9: CPU_time = 0.92 secs, Wall_time = 0.89 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:24 2026: Image # 2, module FilterObjects # 10: CPU_time = 2.08 secs, Wall_time = 2.10 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:26 2026: Image # 2, module IdentifyTertiaryObjects # 11: CPU_time = 0.33 secs, Wall_time = 0.33 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:27 2026: Image # 2, module MeasureColocalization # 12: CPU_time = 28.65 secs, Wall_time = 28.80 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:20:55 2026: Image # 2, module MeasureGranularity # 13: CPU_time = 33.67 secs, Wall_time = 33.90 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:21:29 2026: Image # 2, module MeasureObjectIntensity # 14: CPU_time = 10.17 secs, Wall_time = 10.23 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:21:40 2026: Image # 2, module MeasureObjectNeighbors # 15: CPU_time = 0.53 secs, Wall_time = 0.54 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:21:40 2026: Image # 2, module MeasureObjectNeighbors # 16: CPU_time = 0.29 secs, Wall_time = 0.28 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:21:40 2026: Image # 2, module MeasureObjectNeighbors # 17: CPU_time = 0.38 secs, Wall_time = 0.39 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:21:41 2026: Image # 2, module MeasureObjectIntensityDistribution # 18: CPU_time = 4.60 secs, Wall_time = 4.58 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:21:45 2026: Image # 2, module MeasureObjectSizeShape # 19: CPU_time = 4.67 secs, Wall_time = 4.70 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:21:50 2026: Image # 2, module MeasureTexture # 20: CPU_time = 33.22 secs, Wall_time = 33.48 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:24 2026: Image # 2, module EnhanceOrSuppressFeatures # 21: CPU_time = 0.06 secs, Wall_time = 0.06 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:24 2026: Image # 2, module Threshold # 22: CPU_time = 0.36 secs, Wall_time = 0.36 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:24 2026: Image # 2, module MorphologicalSkeleton # 23: CPU_time = 0.03 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:24 2026: Image # 2, module MeasureObjectSkeleton # 24: CPU_time = 0.28 secs, Wall_time = 0.29 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:24 2026: Image # 2, module MeasureObjectIntensityDistribution # 25: CPU_time = 2.39 secs, Wall_time = 2.40 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module MaskImage # 26: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module MaskImage # 27: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module MaskImage # 28: CPU_time = 0.01 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module MaskImage # 29: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module MaskImage # 30: CPU_time = 0.01 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module MaskImage # 31: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module MaskImage # 32: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module MaskImage # 33: CPU_time = 0.01 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module MeasureImageIntensity # 34: CPU_time = 0.38 secs, Wall_time = 0.38 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module OverlayOutlines # 35: CPU_time = 0.03 secs, Wall_time = 0.03 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module OverlayOutlines # 36: CPU_time = 0.02 secs, Wall_time = 0.03 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module SaveImages # 37: CPU_time = 0.02 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module SaveImages # 38: CPU_time = 0.03 secs, Wall_time = 0.03 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 2, module ExportToSpreadsheet # 39: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+TiffDelegateReader initializing /fixture/assets/r01c02f01p01-ch5sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c02f01p01-ch8sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c02f01p01-ch6sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c02f01p01-ch1sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c02f01p01-ch4sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c02f01p01-ch2sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c02f01p01-ch7sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+TiffDelegateReader initializing /fixture/assets/r01c02f01p01-ch3sk1fk1fl1.tiff
+Reading IFDs
+Populating metadata
+Checking comment style
+Populating OME metadata
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:27 2026: Image # 3, module LoadData # 1: CPU_time = 1.71 secs, Wall_time = 1.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:28 2026: Image # 3, module CorrectIlluminationApply # 2: CPU_time = 0.02 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:28 2026: Image # 3, module MeasureImageQuality # 3: CPU_time = 5.57 secs, Wall_time = 5.60 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:34 2026: Image # 3, module MeasureImageQuality # 4: CPU_time = 0.20 secs, Wall_time = 0.20 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:34 2026: Image # 3, module CorrectIlluminationCalculate # 6: CPU_time = 0.38 secs, Wall_time = 0.38 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:34 2026: Image # 3, module CorrectIlluminationApply # 7: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:34 2026: Image # 3, module IdentifyPrimaryObjects # 8: CPU_time = 0.36 secs, Wall_time = 0.36 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:35 2026: Image # 3, module IdentifySecondaryObjects # 9: CPU_time = 0.31 secs, Wall_time = 0.32 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:35 2026: Image # 3, module FilterObjects # 10: CPU_time = 1.54 secs, Wall_time = 1.55 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:37 2026: Image # 3, module IdentifyTertiaryObjects # 11: CPU_time = 0.11 secs, Wall_time = 0.12 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:37 2026: Image # 3, module MeasureColocalization # 12: CPU_time = 10.26 secs, Wall_time = 10.33 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:22:47 2026: Image # 3, module MeasureGranularity # 13: CPU_time = 34.75 secs, Wall_time = 34.98 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:22 2026: Image # 3, module MeasureObjectIntensity # 14: CPU_time = 4.12 secs, Wall_time = 4.16 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:26 2026: Image # 3, module MeasureObjectNeighbors # 15: CPU_time = 0.36 secs, Wall_time = 0.35 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:27 2026: Image # 3, module MeasureObjectNeighbors # 16: CPU_time = 0.24 secs, Wall_time = 0.25 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:27 2026: Image # 3, module MeasureObjectNeighbors # 17: CPU_time = 0.28 secs, Wall_time = 0.28 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:27 2026: Image # 3, module MeasureObjectIntensityDistribution # 18: CPU_time = 2.95 secs, Wall_time = 2.91 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:30 2026: Image # 3, module MeasureObjectSizeShape # 19: CPU_time = 2.66 secs, Wall_time = 2.69 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:33 2026: Image # 3, module MeasureTexture # 20: CPU_time = 20.46 secs, Wall_time = 20.63 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:53 2026: Image # 3, module EnhanceOrSuppressFeatures # 21: CPU_time = 0.06 secs, Wall_time = 0.07 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:53 2026: Image # 3, module Threshold # 22: CPU_time = 0.41 secs, Wall_time = 0.41 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:54 2026: Image # 3, module MorphologicalSkeleton # 23: CPU_time = 0.01 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:54 2026: Image # 3, module MeasureObjectSkeleton # 24: CPU_time = 0.23 secs, Wall_time = 0.23 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:54 2026: Image # 3, module MeasureObjectIntensityDistribution # 25: CPU_time = 1.26 secs, Wall_time = 1.27 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:55 2026: Image # 3, module MaskImage # 26: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:55 2026: Image # 3, module MaskImage # 27: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:55 2026: Image # 3, module MaskImage # 28: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:55 2026: Image # 3, module MaskImage # 29: CPU_time = 0.01 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:55 2026: Image # 3, module MaskImage # 30: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:55 2026: Image # 3, module MaskImage # 31: CPU_time = 0.01 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:55 2026: Image # 3, module MaskImage # 32: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:55 2026: Image # 3, module MaskImage # 33: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:55 2026: Image # 3, module MeasureImageIntensity # 34: CPU_time = 0.60 secs, Wall_time = 0.60 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:56 2026: Image # 3, module OverlayOutlines # 35: CPU_time = 0.03 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:56 2026: Image # 3, module OverlayOutlines # 36: CPU_time = 0.02 secs, Wall_time = 0.03 secs
+/opt/cp/src/frontend/cellprofiler/modules/saveimages.py:795: UserWarning: /work/.cps/three-field-demo/independent/output/outlines/A02_s1--nuclei_outlines.png is a low contrast image
+  skimage.io.imsave(filename, pixels, **save_kwargs)
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:56 2026: Image # 3, module SaveImages # 37: CPU_time = 0.02 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:56 2026: Image # 3, module SaveImages # 38: CPU_time = 0.02 secs, Wall_time = 0.02 secs
+[CP - INFO] cellprofiler_core.pipeline._pipeline::run_with_yield: Wed Nov  4 13:23:56 2026: Image # 3, module ExportToSpreadsheet # 39: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+[CP - ERROR] cellprofiler_core.utilities.hdf5_dict::__getitem__: Unable to decode object measurement. You may find bytes in your output sheet.
+[CP - INFO] cellprofiler_core.utilities.java::stop_java: Shutting down Java Virtual Machine

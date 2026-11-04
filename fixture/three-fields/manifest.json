@@ -1,0 +1,140 @@
+{
+  "source_csv": {
+    "url": "https://cellpainting-gallery.s3.amazonaws.com/cpg0016-jump/source_4/workspace/load_data_csv/2021_04_26_Batch1/BR00117035/load_data_with_illum.csv",
+    "sha256": "56d9d92a77eb6d636b73ef23a75e2df4701c4342f0576255c8959747e2601290",
+    "rows": 3456
+  },
+  "source_data_row_indices_zero_based": [
+    0,
+    1,
+    9
+  ],
+  "selection": "Previously cached public fields, fixed before this demonstration; not quality-selected or representative of the plate.",
+  "fields": [
+    {
+      "plate": "BR00117035",
+      "well": "A01",
+      "site": "1"
+    },
+    {
+      "plate": "BR00117035",
+      "well": "A01",
+      "site": "2"
+    },
+    {
+      "plate": "BR00117035",
+      "well": "A02",
+      "site": "1"
+    }
+  ],
+  "csv_files": [
+    {
+      "path": "load_data_with_illum.csv",
+      "rows": 3,
+      "sha256": "fbe8133b6bfe0b28bbd1ac027c6356fec7b3c9b8ee808f250825000927f2faaf"
+    },
+    {
+      "path": "A01_s1/load_data_with_illum.csv",
+      "rows": 1,
+      "sha256": "59a9a819f219e038b17147ea402811c7a0ca6d58bd495f980899742bc43d3365"
+    },
+    {
+      "path": "A01_s2/load_data_with_illum.csv",
+      "rows": 1,
+      "sha256": "513663e4043bc8df38c8577e1975ec82d4ccf21a54215e7d032341bf982d263d"
+    },
+    {
+      "path": "A02_s1/load_data_with_illum.csv",
+      "rows": 1,
+      "sha256": "00d9bed1db8e566bf8b4dcf54638f9a4668e2a4b7493ac7edda34b06a1e6bbab"
+    }
+  ],
+  "column_count": 44,
+  "rewritten_url_columns": 16,
+  "preserved_metadata_columns": 28,
+  "base_files": "scripts/fetch_data.py:FILES",
+  "additional_files": [
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c01f02p01-ch1sk1fk1fl1.tiff",
+      "bytes": 2678352,
+      "sha256": "897410aedc4fe4c07d2007de3223036f00e460d625fe303b1f879d9286a15f53"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c01f02p01-ch2sk1fk1fl1.tiff",
+      "bytes": 2816296,
+      "sha256": "55818654e76af9bcb1d29060e3cd8bc25591708031adc3dcb76fc39672b12de4"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c01f02p01-ch3sk1fk1fl1.tiff",
+      "bytes": 2990288,
+      "sha256": "9f849a2fca7f173bf812402f9527da4a63117d1df4072538ed89336ed88db607"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c01f02p01-ch4sk1fk1fl1.tiff",
+      "bytes": 2988870,
+      "sha256": "f42d5209c039c237b3f5721006bdbfc5427d1e903c62086673c55a26562fbd17"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c01f02p01-ch5sk1fk1fl1.tiff",
+      "bytes": 2415588,
+      "sha256": "467f0223d64d8ed734d4e9e667ca107190d61329d11acb05e7f6e0cca2704af3"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c01f02p01-ch6sk1fk1fl1.tiff",
+      "bytes": 2509812,
+      "sha256": "1a54a737d03d6c476f9e89a230092d2b5a5b12eaa19efebb0f6d8ec35912d27f"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c01f02p01-ch7sk1fk1fl1.tiff",
+      "bytes": 2441740,
+      "sha256": "d3842241a0709ed8d2d4b695db48f5eab46c60eee2b3f98549190bffd2b4cf29"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c01f02p01-ch8sk1fk1fl1.tiff",
+      "bytes": 2376570,
+      "sha256": "3d8e5941132ac57931e7b167354bacda1b8243b343a9ea69b0f1156c9f5917ca"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c02f01p01-ch1sk1fk1fl1.tiff",
+      "bytes": 2331118,
+      "sha256": "bfd1a0a3102ce83ee931d3d8ff08591d9765b384df7f1895fe104979cf5fc130"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c02f01p01-ch2sk1fk1fl1.tiff",
+      "bytes": 2342430,
+      "sha256": "27d027a1aebd009955495474828c138df9c7f40183027eb38feb50c24d4a5cdd"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c02f01p01-ch3sk1fk1fl1.tiff",
+      "bytes": 2279522,
+      "sha256": "e9ff64f5791649e5439058e4dfd6dfd0e9d5393812b8bdde39438576f39ee74f"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c02f01p01-ch4sk1fk1fl1.tiff",
+      "bytes": 2332560,
+      "sha256": "4dc49cb558fa2f9e8703cb009274922a68504ecb4ecd13281d00d597ea3d0a94"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c02f01p01-ch5sk1fk1fl1.tiff",
+      "bytes": 1948152,
+      "sha256": "76721dd0c57016d564eb4475cc63c8efc6f733c24947e48f8756834f06b5f5fb"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c02f01p01-ch6sk1fk1fl1.tiff",
+      "bytes": 2490666,
+      "sha256": "cb3a87a865bff6f3a2099aae60dcbd6c79144d5222386541cb9852fc7c570fb2"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c02f01p01-ch7sk1fk1fl1.tiff",
+      "bytes": 2471868,
+      "sha256": "c5d501630229e05e8b7d79a43811fb91d24c84d772d8fabd8af7930f3251f042"
+    },
+    {
+      "path": "images/BR00117035__2021-05-02T16_02_51-Measurement1/Images/r01c02f01p01-ch8sk1fk1fl1.tiff",
+      "bytes": 2425832,
+      "sha256": "a7fa779b112cc519b57cb87e16cdbf5b5801b21f1a4f447094318130fc9fb5ef"
+    }
+  ],
+  "unique_assets": 32,
+  "total_asset_bytes": 96309762
+}

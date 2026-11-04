@@ -1,0 +1,878 @@
+{
+  "pid": 18,
+  "started": "2026-11-04T13:27:20",
+  "cellprofiler_version": "5.0.0.dev792",
+  "fields": {
+    "A01_s1": {
+      "counts": {
+        "NucleiIncludingEdges": 73,
+        "CellsIncludingEdges": 73,
+        "Nuclei": 66,
+        "Cells": 66,
+        "Cytoplasm": 66
+      },
+      "measurement": {
+        "count": 73,
+        "summary": {
+          "Area": [
+            773.8,
+            1125.0,
+            1446.2
+          ],
+          "Solidity": [
+            0.9613,
+            0.9721,
+            0.9784
+          ],
+          "Eccentricity": [
+            0.4989,
+            0.7435,
+            0.8788
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0361,
+            0.049,
+            0.0574
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.8265,
+            53.2485,
+            75.3744
+          ]
+        },
+        "ref": "NucleiIncludingEdges",
+        "vs_ref": {
+          "ref_count": 73,
+          "count": 73,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.188
+      },
+      "view": {
+        "path": "/work/.cps/three-field-replay/views/A01_s1-baseline.png",
+        "shape": [
+          1080,
+          1080
+        ],
+        "legend": [
+          "NucleiIncludingEdges: 73 labels"
+        ]
+      },
+      "library_module_labels_equal": true
+    },
+    "A01_s2": {
+      "counts": {
+        "NucleiIncludingEdges": 256,
+        "CellsIncludingEdges": 256,
+        "Nuclei": 226,
+        "Cells": 226,
+        "Cytoplasm": 226
+      },
+      "measurement": {
+        "count": 256,
+        "summary": {
+          "Area": [
+            487.5,
+            979.5,
+            1389.5
+          ],
+          "Solidity": [
+            0.9341,
+            0.9705,
+            0.9776
+          ],
+          "Eccentricity": [
+            0.541,
+            0.7572,
+            0.8577
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.038,
+            0.049,
+            0.0675
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            25.7195,
+            44.4096,
+            79.3375
+          ]
+        },
+        "ref": "NucleiIncludingEdges",
+        "vs_ref": {
+          "ref_count": 256,
+          "count": 256,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.648
+      },
+      "view": {
+        "path": "/work/.cps/three-field-replay/views/A01_s2-baseline.png",
+        "shape": [
+          1080,
+          1080
+        ],
+        "legend": [
+          "NucleiIncludingEdges: 256 labels"
+        ]
+      },
+      "library_module_labels_equal": true
+    },
+    "A02_s1": {
+      "counts": {
+        "NucleiIncludingEdges": 58,
+        "CellsIncludingEdges": 58,
+        "Nuclei": 52,
+        "Cells": 52,
+        "Cytoplasm": 52
+      },
+      "measurement": {
+        "count": 58,
+        "summary": {
+          "Area": [
+            599.7,
+            1010.0,
+            1533.5
+          ],
+          "Solidity": [
+            0.9466,
+            0.9709,
+            0.9766
+          ],
+          "Eccentricity": [
+            0.6086,
+            0.8184,
+            0.8964
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0425,
+            0.0531,
+            0.0695
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.9617,
+            51.9645,
+            91.3581
+          ]
+        },
+        "ref": "NucleiIncludingEdges",
+        "vs_ref": {
+          "ref_count": 58,
+          "count": 58,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.151
+      },
+      "view": {
+        "path": "/work/.cps/three-field-replay/views/A02_s1-baseline.png",
+        "shape": [
+          1080,
+          1080
+        ],
+        "legend": [
+          "NucleiIncludingEdges: 58 labels"
+        ]
+      },
+      "library_module_labels_equal": true
+    }
+  }
+}
+{
+  "name": "tc11",
+  "changes": {
+    "threshold_correction_factor": 1.1
+  },
+  "fields": {
+    "A01_s1": {
+      "count": 74,
+      "threshold": 0.012744725216180088,
+      "measurement": {
+        "count": 74,
+        "summary": {
+          "Area": [
+            738.9,
+            1099.0,
+            1426.9
+          ],
+          "Solidity": [
+            0.9591,
+            0.9727,
+            0.9787
+          ],
+          "Eccentricity": [
+            0.4963,
+            0.747,
+            0.8789
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0365,
+            0.0498,
+            0.0581
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.46,
+            49.8971,
+            74.7642
+          ]
+        },
+        "ref": "array",
+        "vs_ref": {
+          "ref_count": 73,
+          "count": 74,
+          "splits": 1,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [
+            [
+              804,
+              783
+            ]
+          ],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": false
+        },
+        "seconds": 0.18
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s1-tc11.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 73 labels (red where it differs)",
+            "labels[0]: 74 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s1-tc11-split_at0.png",
+          "shape": [
+            180,
+            180
+          ],
+          "legend": [
+            "ref labels[ref]: 73 labels (red where it differs)",
+            "labels[0]: 74 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        }
+      ]
+    },
+    "A01_s2": {
+      "count": 251,
+      "threshold": 0.01552900290116668,
+      "measurement": {
+        "count": 251,
+        "summary": {
+          "Area": [
+            536.0,
+            963.0,
+            1370.0
+          ],
+          "Solidity": [
+            0.939,
+            0.9704,
+            0.9777
+          ],
+          "Eccentricity": [
+            0.5685,
+            0.7601,
+            0.8596
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0385,
+            0.0501,
+            0.0685
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            29.9247,
+            46.5473,
+            79.2248
+          ]
+        },
+        "ref": "array",
+        "vs_ref": {
+          "ref_count": 256,
+          "count": 251,
+          "splits": 2,
+          "merges": 6,
+          "lost": 1,
+          "gained": 0,
+          "split_at": [
+            [
+              713,
+              136
+            ],
+            [
+              746,
+              520
+            ]
+          ],
+          "merge_at": [
+            [
+              101,
+              32
+            ],
+            [
+              126,
+              804
+            ],
+            [
+              232,
+              202
+            ],
+            [
+              245,
+              504
+            ],
+            [
+              737,
+              687
+            ],
+            [
+              907,
+              1020
+            ]
+          ],
+          "lost_at": [
+            [
+              2,
+              475
+            ]
+          ],
+          "gained_at": [],
+          "identical": false
+        },
+        "seconds": 0.668
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-tc11.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 251 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-tc11-split_at0.png",
+          "shape": [
+            180,
+            180
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 251 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-tc11-split_at1.png",
+          "shape": [
+            180,
+            180
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 251 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-tc11-merge_at0.png",
+          "shape": [
+            180,
+            122
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 251 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-tc11-merge_at1.png",
+          "shape": [
+            180,
+            180
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 251 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-tc11-lost_at0.png",
+          "shape":
+... [4403 chars truncated] ...
+     "count": 249,
+          "splits": 0,
+          "merges": 7,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [
+            [
+              87,
+              561
+            ],
+            [
+              101,
+              32
+            ],
+            [
+              247,
+              195
+            ],
+            [
+              245,
+              504
+            ],
+            [
+              742,
+              95
+            ],
+            [
+              737,
+              687
+            ],
+            [
+              907,
+              1020
+            ]
+          ],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": false
+        },
+        "seconds": 0.765
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-supp12.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 249 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-supp12-merge_at0.png",
+          "shape": [
+            177,
+            180
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 249 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-supp12-merge_at1.png",
+          "shape": [
+            180,
+            122
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 249 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        }
+      ]
+    },
+    "A02_s1": {
+      "count": 57,
+      "threshold": 0.012942229397594929,
+      "measurement": {
+        "count": 57,
+        "summary": {
+          "Area": [
+            620.4,
+            1031.0,
+            1555.0
+          ],
+          "Solidity": [
+            0.9465,
+            0.9708,
+            0.9767
+          ],
+          "Eccentricity": [
+            0.6297,
+            0.8215,
+            0.8965
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0424,
+            0.0529,
+            0.0683
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.9302,
+            52.4758,
+            91.3591
+          ]
+        },
+        "ref": "array",
+        "vs_ref": {
+          "ref_count": 58,
+          "count": 57,
+          "splits": 0,
+          "merges": 1,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [
+            [
+              351,
+              945
+            ]
+          ],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": false
+        },
+        "seconds": 0.156
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-replay/views/A02_s1-supp12.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 58 labels (red where it differs)",
+            "labels[0]: 57 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A02_s1-supp12-merge_at0.png",
+          "shape": [
+            180,
+            180
+          ],
+          "legend": [
+            "ref labels[ref]: 58 labels (red where it differs)",
+            "labels[0]: 57 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        }
+      ]
+    }
+  }
+}
+{
+  "name": "supp10",
+  "changes": {
+    "maxima_suppression_size": 10
+  },
+  "fields": {
+    "A01_s1": {
+      "count": 73,
+      "threshold": 0.011586113832890987,
+      "measurement": {
+        "count": 73,
+        "summary": {
+          "Area": [
+            773.8,
+            1125.0,
+            1446.2
+          ],
+          "Solidity": [
+            0.9613,
+            0.9721,
+            0.9784
+          ],
+          "Eccentricity": [
+            0.4989,
+            0.7435,
+            0.8788
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0361,
+            0.049,
+            0.0574
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.8265,
+            53.2485,
+            75.3744
+          ]
+        },
+        "ref": "array",
+        "vs_ref": {
+          "ref_count": 73,
+          "count": 73,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.18
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s1-supp10.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 73 labels (red where it differs)",
+            "labels[0]: 73 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        }
+      ]
+    },
+    "A01_s2": {
+      "count": 250,
+      "threshold": 0.01411727536469698,
+      "measurement": {
+        "count": 250,
+        "summary": {
+          "Area": [
+            489.6,
+            1001.5,
+            1409.7
+          ],
+          "Solidity": [
+            0.9404,
+            0.9705,
+            0.9777
+          ],
+          "Eccentricity": [
+            0.5655,
+            0.7613,
+            0.8584
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.038,
+            0.0492,
+            0.0672
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            29.2001,
+            47.3509,
+            79.5709
+          ]
+        },
+        "ref": "array",
+        "vs_ref": {
+          "ref_count": 256,
+          "count": 250,
+          "splits": 0,
+          "merges": 6,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [
+            [
+              87,
+              561
+            ],
+            [
+              101,
+              32
+            ],
+            [
+              245,
+              504
+            ],
+            [
+              742,
+              95
+            ],
+            [
+              737,
+              687
+            ],
+            [
+              907,
+              1020
+            ]
+          ],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": false
+        },
+        "seconds": 0.664
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-supp10.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 250 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-supp10-merge_at0.png",
+          "shape": [
+            177,
+            180
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 250 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-replay/views/A01_s2-supp10-merge_at1.png",
+          "shape": [
+            180,
+            122
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 250 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        }
+      ]
+    },
+    "A02_s1": {
+      "count": 58,
+      "threshold": 0.012942229397594929,
+      "measurement": {
+        "count": 58,
+        "summary": {
+          "Area": [
+            599.7,
+            1010.0,
+            1533.5
+          ],
+          "Solidity": [
+            0.9466,
+            0.9709,
+            0.9766
+          ],
+          "Eccentricity": [
+            0.6086,
+            0.8184,
+            0.8964
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0425,
+            0.0531,
+            0.0695
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.9617,
+            51.9645,
+            91.3581
+          ]
+        },
+        "ref": "array",
+        "vs_ref": {
+          "ref_count": 58,
+          "count": 58,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.152
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-replay/views/A02_s1-supp10.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 58 labels (red where it differs)",
+            "labels[0]: 58 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        }
+      ]
+    }
+  }
+}
+{
+  "saved": "/work/.cps/three-field-replay/Selected.cppipe",
+  "expected": "/work/.cps/three-field-replay/expected.json",
+  "counts": {
+    "A01_s1": {
+      "NucleiIncludingEdges": 73,
+      "CellsIncludingEdges": 73,
+      "Nuclei": 66,
+      "Cells": 66,
+      "Cytoplasm": 66
+    },
+    "A01_s2": {
+      "NucleiIncludingEdges": 256,
+      "CellsIncludingEdges": 256,
+      "Nuclei": 226,
+      "Cells": 226,
+      "Cytoplasm": 226
+    },
+    "A02_s1": {
+      "NucleiIncludingEdges": 58,
+      "CellsIncludingEdges": 58,
+      "Nuclei": 52,
+      "Cells": 52,
+      "Cytoplasm": 52
+    }
+  },
+  "pid": 18,
+  "pipeline_sha256": "8015e5631090cb70aa1fcfbdea305490bcbe0960a5349a6742eb5bd435036658"
+}

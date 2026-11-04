@@ -1,0 +1,29 @@
+{
+  "A01_s1": {
+    "native_metadata": {
+      "Plate": "BR00117035",
+      "Well": "A01",
+      "Site": "1"
+    },
+    "matches_expected": true,
+    "input_directory": "/work/fixture"
+  },
+  "A01_s2": {
+    "native_metadata": {
+      "Plate": "BR00117035",
+      "Well": "A01",
+      "Site": "2"
+    },
+    "matches_expected": true,
+    "input_directory": "/work/fixture/three-fields/A01_s2"
+  },
+  "A02_s1": {
+    "native_metadata": {
+      "Plate": "BR00117035",
+      "Well": "A02",
+      "Site": "1"
+    },
+    "matches_expected": true,
+    "input_directory": "/work/fixture/three-fields/A02_s1"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "name": "supp10",
+  "changes": {
+    "maxima_suppression_size": 10
+  },
+  "fields": {
+    "A01_s1": {
+      "count": 73,
+      "threshold": 0.011586113832890987,
+      "measurement": {
+        "count": 73,
+        "summary": {
+          "Area": [
+            773.8,
+            1125.0,
+            1446.2
+          ],
+          "Solidity": [
+            0.9613,
+            0.9721,
+            0.9784
+          ],
+          "Eccentricity": [
+            0.4989,
+            0.7435,
+            0.8788
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0361,
+            0.049,
+            0.0574
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.8265,
+            53.2485,
+            75.3744
+          ]
+        },
+        "ref": "array",
+        "vs_ref": {
+          "ref_count": 73,
+          "count": 73,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.177
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-demo/views/A01_s1-supp10.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 73 labels (red where it differs)",
+            "labels[0]: 73 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        }
+      ]
+    },
+    "A01_s2": {
+      "count": 250,
+      "threshold": 0.01411727536469698,
+      "measurement": {
+        "count": 250,
+        "summary": {
+          "Area": [
+            489.6,
+            1001.5,
+            1409.7
+          ],
+          "Solidity": [
+            0.9404,
+            0.9705,
+            0.9777
+          ],
+          "Eccentricity": [
+            0.5655,
+            0.7613,
+            0.8584
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.038,
+            0.0492,
+            0.0672
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            29.2001,
+            47.3509,
+            79.5709
+          ]
+        },
+        "ref": "array",
+        "vs_ref": {
+          "ref_count": 256,
+          "count": 250,
+          "splits": 0,
+          "merges": 6,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [
+            [
+              87,
+              561
+            ],
+            [
+              101,
+              32
+            ],
+            [
+              245,
+              504
+            ],
+            [
+              742,
+              95
+            ],
+            [
+              737,
+              687
+            ],
+            [
+              907,
+              1020
+            ]
+          ],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": false
+        },
+        "seconds": 0.658
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-demo/views/A01_s2-supp10.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 250 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge_at0.png",
+          "shape": [
+            177,
+            180
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 250 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        },
+        {
+          "path": "/work/.cps/three-field-demo/views/A01_s2-supp10-merge_at1.png",
+          "shape": [
+            180,
+            122
+          ],
+          "legend": [
+            "ref labels[ref]: 256 labels (red where it differs)",
+            "labels[0]: 250 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        }
+      ]
+    },
+    "A02_s1": {
+      "count": 58,
+      "threshold": 0.012942229397594929,
+      "measurement": {
+        "count": 58,
+        "summary": {
+          "Area": [
+            599.7,
+            1010.0,
+            1533.5
+          ],
+          "Solidity": [
+            0.9466,
+            0.9709,
+            0.9766
+          ],
+          "Eccentricity": [
+            0.6086,
+            0.8184,
+            0.8964
+          ],
+          "MeanIntensity_CorrBlue": [
+            0.0425,
+            0.0531,
+            0.0695
+          ],
+          "IntegratedIntensity_CorrBlue": [
+            35.9617,
+            51.9645,
+            91.3581
+          ]
+        },
+        "ref": "array",
+        "vs_ref": {
+          "ref_count": 58,
+          "count": 58,
+          "splits": 0,
+          "merges": 0,
+          "lost": 0,
+          "gained": 0,
+          "split_at": [],
+          "merge_at": [],
+          "lost_at": [],
+          "gained_at": [],
+          "identical": true
+        },
+        "seconds": 0.153
+      },
+      "views": [
+        {
+          "path": "/work/.cps/three-field-demo/views/A02_s1-supp10.png",
+          "shape": [
+            1080,
+            1080
+          ],
+          "legend": [
+            "ref labels[ref]: 58 labels (red where it differs)",
+            "labels[0]: 58 labels (green where it differs)",
+            "yellow: outlines in both"
+          ]
+        }
+      ]
+    }
+  }
+}

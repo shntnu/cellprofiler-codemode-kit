@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "command": [
+    "./cprun.sh",
+    "python",
+    "-m",
+    "cellprofiler",
+    "-c",
+    "-r",
+    "-p",
+    "/work/.cps/three-field-demo/independent/Selected.cppipe",
+    "-i",
+    "/work/fixture/three-fields",
+    "-o",
+    "/work/.cps/three-field-demo/independent/output"
+  ],
+  "container": "cps-three-fields-verification",
+  "started_utc": "2026-11-04T13:18:39Z",
+  "pipeline_sha256": "8015e5631090cb70aa1fcfbdea305490bcbe0960a5349a6742eb5bd435036658",
+  "expected_sha256": "6107455452a7f7fc950b11adf7f387674d45b0dfdb268054414149475953c841",
+  "input_csv_sha256": "fbe8133b6bfe0b28bbd1ac027c6356fec7b3c9b8ee808f250825000927f2faaf",
+  "code_commit": "65abb8a1e91ba421bfb54dbbdfca3f92fb2e3459",
+  "image_id": "ff2638edcb75a036d94b966291c8e7b2fd345e1bf39cba9f3d90fe5e577607cc",
+  "returncode": 0,
+  "seconds": 323.358
+}

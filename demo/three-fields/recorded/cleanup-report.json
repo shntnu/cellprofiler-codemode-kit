@@ -1,0 +1,16 @@
+{
+  "cleanup_command": "trash .cps/three-field-replay",
+  "daemon_container_absent": true,
+  "other_running_containers": [
+    "cp-gui-spirit",
+    "cp-gui-cellpainting-v2-spirit"
+  ],
+  "pending": false,
+  "replay_directory_absent": true,
+  "replay_directory_trashed": "/work/users/shsingh/GitHub/agentic/cellprofiler-codemode-kit/.cps/three-field-replay",
+  "retained_canonical_path": "/work/users/shsingh/GitHub/agentic/cellprofiler-codemode-kit/.cps/three-field-demo",
+  "retained_canonical_reason": "Original demonstration outputs, independently executed native results, exact-comparison proofs, code logs, and replay hash inventory remain available for audit and publication.",
+  "socket_absent": true,
+  "status_message": "cps: no session running; `cps start`",
+  "status_returncode": 1
+}

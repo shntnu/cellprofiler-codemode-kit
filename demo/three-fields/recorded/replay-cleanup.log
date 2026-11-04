@@ -1,0 +1,4 @@
+cps stop: stopped
+podman container exists cps-codemode: exit1
+cps: no session running; `cps start`
+Other running containers: cp-gui-spirit, cp-gui-cellpainting-v2-spirit

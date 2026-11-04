@@ -4,7 +4,9 @@ A live, headless CellProfiler 5 session that a coding agent drives by running Py
 It loads the JUMP Cell Painting analysis pipeline on one public field and keeps the images, objects and measurements in memory.
 You can then try IdentifyPrimaryObjects settings through `cellprofiler_library`, measure and view the result in under a second, and commit, undo, save and run the saved pipeline headlessly.
 
-The scope is narrow: IdentifyPrimaryObjects only, one field (JUMP plate BR00117035, well A01, site 1), and CellProfiler `main` at commit `49987452` (version `5.0.0.dev792`, a pre-release).
+The default fixture is one field (JUMP plate BR00117035, well A01, site 1).
+The scope is IdentifyPrimaryObjects on CellProfiler `main` at commit `49987452` (version `5.0.0.dev792`, a pre-release).
+The optional [three-field demonstration](demo/three-fields/README.md) compares shared settings, shows the changed objects, and checks a saved pipeline independently.
 
 ## Requirements
 
@@ -93,11 +95,12 @@ The session itself uses about 0.7 GB of memory.
 
 ```bash
 python3 tests/test_cps_cli.py
+python3 tests/test_three_field_verification.py
 ```
 
 The first runs 19 tests in the container on the pipeline trimmed to its first 11 modules, in about a minute.
-The second runs seven isolated host checks for missing and busy sessions, safe startup, and explicit stop.
-It does not touch running sessions or require Podman.
+The second block runs seven isolated client checks and ten three-field verifier checks on the host.
+These do not touch running sessions or require Podman.
 
 ## Known limits
 
