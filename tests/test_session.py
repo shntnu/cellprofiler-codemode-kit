@@ -106,6 +106,7 @@ def test_stop_module_marks_tail_stale(session):
     assert r["modules_run"] == [ipo, ipo + 1] and r["stale_from"] == ipo + 2
     assert session.status()["stale_from_module"] == ipo + 2
     assert session.run_from(ipo + 3, through=None)["stale_from"] == ipo + 2  # tail run skipped ipo+2
+    assert session.run_from(ipo + 2, through=ipo + 2)["stale_from"] == ipo + 3
     assert session.run_from(ipo, through=None)["stale_from"] is None
     assert session.run_from(ipo)["through_module"] == max(session.object_modules())
 
@@ -237,3 +238,118 @@ def test_measure_ref_defaults_and_inert_settings(session):
     assert numpy.array_equal(session.try_ipo(smoothing_filter_size=30)["labels"], session.labels("NucleiIncludingEdges"))
     assert "maxima_suppression_size" in text and "no effect" not in next(
         x for x in text.splitlines() if x.strip().startswith("maxima_suppression_size"))
+
+
+def test_invalid_commit_preserves_settings_objects_and_undo(session):
+    from codemode.session import snapshot
+
+    session.commit_ipo(threshold_correction_factor=1.1)
+    try:
+        before = snapshot(session.pipeline)
+        history = list(session.history)
+        stale = session.stale_from
+        objects = {name: session.labels(name).copy() for name in session.counts()}
+        with pytest.raises(ValueError):
+            session.commit_ipo(threshold_correction_factor=1.2, min_size="bad")
+        assert snapshot(session.pipeline) == before
+        assert session.history == history
+        assert session.stale_from == stale
+        for name, labels in objects.items():
+            assert numpy.array_equal(session.labels(name), labels)
+    finally:
+        session.undo()
+    assert session.settings_diff() == []
+
+
+def test_socket_server_survives_disconnected_client(session, tmp_path, monkeypatch):
+    import socket
+    import threading
+    import time
+
+    import codemode.session as implementation
+
+    entered = threading.Event()
+    release = threading.Event()
+    original_handle = implementation.handle
+
+    def blocked_handle(current, request):
+        if request["tool"] == "execute":
+            entered.set()
+            assert release.wait(5)
+        return original_handle(current, request)
+
+    monkeypatch.setattr(implementation, "handle", blocked_handle)
+    path = str(tmp_path / "disconnect.sock")
+    errors = []
+
+    def serve():
+        try:
+            implementation.serve_socket(session, path)
+        except Exception as error:
+            errors.append(error)
+
+    thread = threading.Thread(target=serve, daemon=True)
+    thread.start()
+    deadline = time.monotonic() + 5
+    while not os.path.exists(path) and time.monotonic() < deadline:
+        time.sleep(0.01)
+    assert os.path.exists(path)
+
+    def connect():
+        client = socket.socket(socket.AF_UNIX)
+        client.settimeout(5)
+        client.connect(path)
+        return client
+
+    try:
+        with connect() as abandoned:
+            abandoned.sendall(json.dumps({"tool": "execute", "args": {"code": "kept_after_disconnect = 42"}}).encode() + b"\n")
+            assert entered.wait(5)
+        release.set()
+        with connect() as client, client.makefile("rw") as stream:
+            stream.write(json.dumps({"tool": "execute", "args": {"code": "print(kept_after_disconnect)"}}) + "\n")
+            stream.flush()
+            response = json.loads(stream.readline())
+        assert response["ok"] and response["output"] == "42\n"
+    finally:
+        release.set()
+        if thread.is_alive():
+            try:
+                with connect() as client, client.makefile("rw") as stream:
+                    stream.write('{"tool": "shutdown"}\n')
+                    stream.flush()
+                    stream.readline()
+            except (OSError, ValueError):
+                pass
+        thread.join(5)
+    assert not errors and not thread.is_alive() and not os.path.exists(path)
+
+
+def test_failed_rerun_marks_outputs_stale_and_remains_undoable(session, monkeypatch):
+    objects = {name: session.labels(name).copy() for name in session.counts()}
+    counts = session.counts()
+    history_depth = len(session.history)
+    step = session.step
+    failed_module = session.ipo().module_num + 1
+
+    def fail_downstream(module):
+        if module.module_num == failed_module:
+            raise RuntimeError("injected downstream failure")
+        step(module)
+
+    try:
+        with monkeypatch.context() as patch:
+            patch.setattr(session, "step", fail_downstream)
+            with pytest.raises(RuntimeError, match="injected downstream failure"):
+                session.commit_ipo(threshold_correction_factor=1.1)
+        assert session.stale_from == failed_module
+        assert session.status()["stale_from_module"] == failed_module
+        assert len(session.history) == history_depth + 1
+    finally:
+        if len(session.history) > history_depth:
+            session.undo()
+    assert session.stale_from is None
+    assert session.settings_diff() == []
+    assert session.counts() == counts
+    for name, labels in objects.items():
+        assert numpy.array_equal(session.labels(name), labels)

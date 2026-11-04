@@ -95,9 +95,9 @@ The session itself uses about 0.7 GB of memory.
 python3 tests/test_cps_cli.py
 ```
 
-The first runs 15 tests in the container on the pipeline trimmed to its first 11 modules, in about a minute.
-The second checks, on the host, that the client reports a missing session cleanly.
-Run it while no session is running.
+The first runs 19 tests in the container on the pipeline trimmed to its first 11 modules, in about a minute.
+The second runs seven isolated host checks for missing and busy sessions, safe startup, and explicit stop.
+It does not touch running sessions or require Podman.
 
 ## Known limits
 
@@ -105,6 +105,10 @@ Run it while no session is running.
 - Bio-Formats is pinned by checking the jar after download.
   If Maven's `RELEASE` for `ome:formats-gpl` moves past 9.0.0-rc2, the image build fails at that check instead of silently using a different version.
 - The daemon serves one request at a time, so a long `exec` (for example `headless_run`) blocks other clients.
+  `status` and `start` report a busy session without replacing it; disconnected clients do not end the daemon.
+  An explicit `stop` still ends a busy session.
+- Setting conversion errors restore the previous settings without changing the objects or undo history.
+  If a module fails during a rerun, its outputs and downstream results are marked stale, and the commit retains its undo entry.
 - Agent code runs with the session's privileges inside the container.
   `SystemExit` and `KeyboardInterrupt` are caught, but `os._exit()` ends the daemon.
 - Logs contain two kinds of error lines that are harmless here: - Bio-Formats prints `"loci.formats.in.<Name>Reader" is not valid.` for a few optional readers it cannot load.

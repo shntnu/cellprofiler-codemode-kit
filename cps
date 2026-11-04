@@ -57,10 +57,16 @@ class NoSession(Exception):
     pass
 
 
+class BusySession(Exception):
+    pass
+
+
 def alive():
     try:
         return call("status", timeout=5).get("ok", False)
-    except (NoSession, OSError):
+    except socket.timeout:
+        raise BusySession from None
+    except NoSession:
         return False
 
 
@@ -93,18 +99,27 @@ def print_status(r):
 def cmd_start(a):
     if alive():
         print("already running")
-        return print_status(call("status"))
+        return print_status(call("status", timeout=5))
+    state = subprocess.run(["podman", "inspect", "-f", "{{.State.Running}}", NAME], capture_output=True, text=True)
+    if state.stdout.strip() == "true":
+        sys.exit(f"cps: container {NAME} is running but its session is not ready; leaving it running")
     if not (ROOT / "data").is_dir():
         sys.exit("cps: data/ is missing; run ./scripts/fetch_data.py first")
     RUNTIME.mkdir(exist_ok=True)
-    subprocess.run(["podman", "rm", "-f", NAME], capture_output=True)
+    # A concurrent start must fail on the name conflict, never remove a running session.
+    subprocess.run(["podman", "rm", NAME], capture_output=True)
     cmd = [str(ROOT / "cprun.sh"), "python", "-m", "codemode.session", container_path(a.pipeline),
            "--input", container_path(a.input), "--output", "/work/.cps/output", "--record", "/work/.cps/record",
            "--socket", "/work/.cps/cps.sock"] + (["--full"] if a.full else [])
     t0 = time.time()
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL,
                    env={**os.environ, "CPRUN_PODMAN_ARGS": f"-d --name {NAME}"})
-    while not alive():
+    while True:
+        try:
+            if alive():
+                break
+        except BusySession:
+            pass
         state = subprocess.run(["podman", "inspect", "-f", "{{.State.Running}}", NAME], capture_output=True, text=True)
         if state.stdout.strip() != "true":
             logs = subprocess.run(["podman", "logs", "--tail", "30", NAME], capture_output=True, text=True)
@@ -113,12 +128,15 @@ def cmd_start(a):
             sys.exit(f"cps: not ready after {a.timeout}s; see `podman logs {NAME}`")
         time.sleep(0.5)
     print(f"started in {time.time() - t0:.1f}s")
-    print_status(call("status"))
+    print_status(call("status", timeout=5))
 
 
 def cmd_stop(a):
-    if alive():
-        call("shutdown", timeout=30)
+    try:
+        if alive():
+            call("shutdown", timeout=30)
+    except (NoSession, BusySession, socket.timeout):
+        pass
     subprocess.run(["podman", "stop", "-t", "10", NAME], capture_output=True)
     print("stopped")
 
@@ -126,7 +144,7 @@ def cmd_stop(a):
 def cmd_status(a):
     if not alive():
         sys.exit("cps: no session running; `cps start`")
-    print_status(call("status"))
+    print_status(call("status", timeout=5))
 
 
 def cmd_exec(a):
@@ -213,6 +231,8 @@ def main():
         a.fn(a)
     except NoSession:
         sys.exit("cps: no session running; `cps start`")
+    except (BusySession, socket.timeout):
+        sys.exit("cps: session is busy; leaving it running. Try again when the current operation finishes.")
 
 
 if __name__ == "__main__":

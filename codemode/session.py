@@ -239,13 +239,15 @@ class Session:
         ran = []
         for m in self.pipeline.modules(False):
             if start <= m.module_num <= end and m.enabled and not m.is_input_module():
-                self.step(m)
+                try:
+                    self.step(m)
+                except (Exception, SystemExit, KeyboardInterrupt):
+                    self.stale_from = min(self.stale_from or m.module_num, m.module_num)
+                    raise
                 ran.append(m.module_num)
         dt = time.time() - t0
-        if end == last and (self.stale_from is None or start <= self.stale_from):
-            self.stale_from = None
-        elif end < last:
-            self.stale_from = min(self.stale_from or end + 1, end + 1)
+        if self.stale_from is None or start <= self.stale_from:
+            self.stale_from = end + 1 if end < last else None
         key = f"run_from_{start}_{'end' if end == last else f'through_{end}'}_s"
         self.timings[key] = dt
         return {"from_module": start, "through_module": end, "modules_run": ran, "seconds": round(dt, 3),
@@ -362,9 +364,13 @@ class Session:
         if unknown:
             raise TypeError(f"Cannot commit {sorted(unknown)}; committable: {sorted(COMMITTABLE)}")
         before = snapshot(self.pipeline)
-        for key, value in values.items():
-            for setting, text in COMMITTABLE[key](module, value):
-                setting.value_text = text
+        try:
+            for key, value in values.items():
+                for setting, text in COMMITTABLE[key](module, value):
+                    setting.value_text = text
+        except (Exception, SystemExit, KeyboardInterrupt):
+            module.set_settings_from_values(before[module.module_num], module.variable_revision_number, module.module_name)
+            raise
         return self.commit(before, module, through)
 
     def commit(self, before, from_module, through="objects"):
@@ -663,14 +669,18 @@ def serve_socket(session, path):
     srv.listen(8)
     while True:
         conn, _ = srv.accept()
-        with conn, conn.makefile("rw") as f:
-            line = f.readline()
-            if not line:
-                continue
-            req = json.loads(line)
-            res = handle(session, req)
-            f.write(json.dumps(res, default=str) + "\n")
-            f.flush()
+        res = {}
+        try:
+            with conn, conn.makefile("rw") as f:
+                line = f.readline()
+                if not line:
+                    continue
+                req = json.loads(line)
+                res = handle(session, req)
+                f.write(json.dumps(res, default=str) + "\n")
+                f.flush()
+        except ConnectionError:
+            pass  # A timed-out or cancelled client must not end the session.
         if res.get("shutdown"):
             srv.close()
             os.unlink(path)
