@@ -1,108 +1,107 @@
-# Three fields, one shared decision
+# Cell Painting segmentation tuning
 
-A Codex coding agent compared three IdentifyPrimaryObjects changes across three public Cell Painting fields in one persistent CellProfiler process.
-It inspected the changed objects, revised an unsuccessful idea, and kept the baseline pending expert review.
-The point of this demonstration is to make a shared setting decision inspectable, not to equate a lower object count with better segmentation.
+The agent retained the baseline after three shared setting changes produced mixed results.
+A Codex coding agent tested IdentifyPrimaryObjects settings on three public Cell Painting fields, inspected changed objects, and revised a candidate before recommending expert review.
+Independent CellProfiler execution then reproduced all 15 object counts and 19,608 selected measurement values exactly.
 
-This is a recorded coding-agent session plus a deterministic replay of its actions.
-The replay does not call a model or make a new scientific judgment.
-No model was trained, and no new production session API was needed.
+This demonstration records one coding-agent session and provides a replay of its actions.
+It shows cross-field comparison, reversible editing, and reproducible execution.
+Segmentation quality remains unscored, and three fields cannot establish general agent reliability.
 
-## The task and fields
+## Three fields shared one pipeline
 
-The scripted task was to investigate apparent nuclear oversplitting, compare the same candidates on all three fields, and avoid merging neighboring nuclei.
-The agent could recommend keeping the original settings if the evidence did not support a shared improvement.
-It was also asked to demonstrate commit, undo, saving, and an independent headless check.
-This brief is part of the demonstration; it is not a transcript of additional user instructions.
+The scripted task asked the agent to investigate apparent nuclear oversplitting without merging neighboring nuclei.
+The agent had to compare each candidate across all three fields, recommend shared settings or retain the baseline, and demonstrate commit, undo, saving, and independent execution.
+This brief was written for the demonstration.
 
-![The three baseline fields](recorded/views/baseline-overview.png)
+The inputs came from plate BR00117035: A01 site 1, A01 site 2, and A02 site 1.
+The fields were already available and were fixed before testing settings; they do not represent a plate-wide sample.
+A01 site 2 contains more nuclei and touching clusters than the other two fields.
+The [input provenance](../../fixture/three-fields/SOURCE.md) records their sources and hashes.
 
-The inputs are plate BR00117035, well A01 sites 1 and 2, and well A02 site 1.
-They were fixed before evaluating the settings because these public fields were already available; they are not a representative sample of a plate.
-A01 site 2 is visibly denser and has more touching clusters.
-See the [input provenance and hashes](../../fixture/three-fields/SOURCE.md).
+![Baseline nuclei in the three Cell Painting fields](recorded/views/baseline-overview.png)
 
-## What the agent tried
+## Three setting changes produced mixed results
 
-The table reports primary nuclei before the pipeline's downstream edge filtering.
+The agent applied each candidate setting to all three fields and compared the results with the unchanged baseline.
+The table reports primary nuclei before downstream edge filtering.
 
 | Shared setting | A01 site 1 | A01 site 2 | A02 site 1 |
 |---|---:|---:|---:|
 | Baseline | 73 | 256 | 58 |
 | Threshold correction 1.1 | 74 | 251 | 58 |
 | Maxima suppression 12 | 72 | 249 | 57 |
-| Revised maxima suppression 10 | 73 | 250 | 58 |
+| Maxima suppression 10 | 73 | 250 | 58 |
 
-Each candidate was evaluated against the unchanged baseline, using the same settings on every field.
-The agent used CellProfiler's own measurements and overlap-based split/merge locations, then opened the corresponding image crops.
-Those locations identify changes relative to the baseline; they are not annotated segmentation errors.
+The agent used CellProfiler measurements and overlap-based comparisons to locate changed objects, then inspected image crops at those locations.
+Split, merge, lost, and gained labels describe changes from the baseline; they do not identify segmentation errors.
 
-Threshold correction 1.1 caused one split in A01 site 1, and two splits, six merges, and one lost edge object in A01 site 2.
-In A02 site 1, the count stayed at 58 while the boundaries changed.
-Maxima suppression 12 reduced all three counts, but joined visibly distinct bright neighbors in the sparse fields.
+**Threshold correction 1.1 split and merged objects.**
 
-![Raw corrected DNA and changed outlines for the first trials](recorded/views/first-trials-crops.png)
+It caused one split in A01 site 1, and two splits, six merges, and one lost edge object in A01 site 2.
+It changed boundaries in A02 site 1 while leaving its count at 58.
 
-The agent then reduced the suppression setting from 12 to 10.
-This left the labels in both sparse fields exactly unchanged and produced six merges in the dense field.
-It inspected all six rather than treating the count reduction as a success.
+**Maxima suppression 12 merged objects in every field.**
 
-![All six merges with maxima suppression 10](recorded/views/revised-trial-crops.png)
+It reduced all three counts, but image crops showed it joining visibly distinct bright neighbors in the two sparse fields.
 
-Some removed boundaries lie within apparently continuous nuclear shapes, including locations (101,32), (737,687), and (907,1020).
-These could be corrections of oversplits.
-At (742,95), however, the candidate joins two bright structures separated by a dark cleft, suggesting an unwanted merge.
-The complex cluster at (87,561) and the bilobed structure at (245,504) need expert judgment.
-Coordinates are (y,x) in the original field.
+![Corrected DNA and changed outlines for threshold correction 1.1 and maxima suppression 12](recorded/views/first-trials-crops.png)
+
+**Maxima suppression 10 preserved the sparse fields and merged objects in the dense field.**
+
+The agent reduced the setting from 12 to 10 after inspecting the first trials.
+The revised candidate left both sparse fields' label arrays exactly unchanged and produced six merges in A01 site 2.
+The agent inspected all six.
+
+![Corrected DNA and changed outlines for all six merges with maxima suppression 10](recorded/views/revised-trial-crops.png)
+
+The six merges supported different interpretations:
+
+| Locations in A01 site 2, as (y,x) | Observed change | Possible interpretation |
+|---|---|---|
+| (101,32), (737,687), (907,1020) | Removed boundaries within apparently continuous nuclear shapes | Corrected oversplits |
+| (742,95) | Joined bright structures separated by a dark cleft | Unwanted merge |
+| (87,561), (245,504) | Joined objects in a complex cluster and a bilobed structure | Unresolved; needs expert review |
+
 Red outlines belong only to the baseline, green only to the candidate, and yellow to both.
+The coordinates refer to the original field.
 
-The final decision was to retain the baseline pending expert review.
-This does not establish that the baseline is optimal or that every merge was wrong.
-It records that these images did not establish a consistently beneficial shared change.
+The agent retained the baseline because these images did not establish a consistently beneficial shared change.
+The baseline may still contain segmentation errors, and an expert may judge some merges beneficial.
+The [agent journal](recorded/actor-journal.json) records the actual actions, inspected locations, code hashes, and session identity.
 
-## Commit, undo, and verification
+## Execution checks reproduced the selected result
 
-The agent committed threshold correction 1.1 as a controlled trial on each field.
-The resulting primary-object labels exactly matched the earlier library-level trial in all three fields.
-Undo restored every label array for all five object sets and the original settings.
-The three final pipelines had identical settings before one was saved as [Selected.cppipe](recorded/Selected.cppipe).
-CellProfiler 5 re-serializes the older pipeline format when saving; an empty settings difference does not imply byte-for-byte identity with the original file.
+The agent committed threshold correction 1.1 as a controlled trial on each field, then undid it.
+All three final pipelines had identical settings before the agent saved [Selected.cppipe](recorded/Selected.cppipe).
+Each of Nuclei, Cells, and Cytoplasm contained 66 objects in A01 site 1, 226 in A01 site 2, and 52 in A02 site 1.
 
-The final filtered Nuclei, Cells, and Cytoplasm counts are 66, 226, and 52 for the three fields respectively.
-The [independent verifier](verify.py) maps fields through Plate, Well, and Site rather than assuming the live sessions' ImageNumber values equal the combined run's numbering.
-It checks all five object counts, object numbering, reported module errors, and 19 selected feature vectors for each of Nuclei, Cells, and Cytoplasm in every field.
-These are area, solidity, eccentricity, and mean and integrated intensity on eight measured channels.
-This is a selected-feature comparison, not a check of every exported feature.
+| Check | Recorded result | Evidence |
+|---|---|---|
+| Commit | Matched the earlier trial's primary-object labels in all three fields | [Commit and undo record](recorded/commit-undo.json) |
+| Undo | Restored all five object sets' label arrays and the original settings | [Commit and undo record](recorded/commit-undo.json) |
+| Independent execution | Matched 15 counts and 19,608 selected values exactly; all 37 reported module-error columns were zero in every field | [Verification result](recorded/verification.json) |
+| Fresh-session replay | Reproduced the saved pipeline, expected values, 24 label-array files, and three figures byte-for-byte | [Replay result](recorded/replay-check.json) |
+| Repository tests | Passed all 36 tests, including ten verifier cases | [Test instructions](../../README.md#tests) |
 
-The independent run passed in 323.358 seconds.
-All 15 counts and all 19,608 values in the 171 selected feature vectors matched exactly, with maximum absolute difference 0.
-All 37 reported module-error columns were zero for every field.
-See the [verification result](recorded/verification.json), [native command and runtime identity](recorded/headless-job.json), and [execution log](recorded/headless.log).
-The native log includes the previously documented HDF5 export warning; the selected numeric output checks passed, and this demonstration does not claim to audit every export column.
+The [independent verifier](verify.py) maps fields through Plate, Well, and Site, checks object numbering, and compares 171 feature vectors.
+Those vectors cover 19 features for each of Nuclei, Cells, and Cytoplasm in every field: area, solidity, eccentricity, and mean and integrated intensity on eight channels.
+Exact agreement establishes consistency with native execution for those selected outputs.
+It does not establish segmentation accuracy or cover every exported feature.
+The [native log](recorded/headless.log) includes the documented HDF5 export warning; the selected numeric checks passed.
 
-The [agent journal](recorded/actor-journal.json) records the actual sequence, inspected locations, code hashes, and session identity.
-The [commit/undo proof](recorded/commit-undo.json) records the reversible edits.
-All 36 repository tests passed, including ten negative and positive cases for the independent verifier.
+## Replay the recorded actions
 
-A [fresh-session replay](recorded/replay-check.json) then completed in 67.753 seconds.
-Its saved pipeline, expected values, all 24 label-array files, and all three published figures were byte-identical to the recorded demonstration.
-The replay's expected values also passed against the original independent native outputs; the byte-identical pipeline did not need a second headless run.
-The record preserves a status-serialization error and its repair, which did not change pipeline or object state.
-Both owned daemon sessions were stopped, and the redundant replay directory was moved to trash after its hashes were retained.
-The original full outputs remain under `.cps/three-field-demo/` on Spirit for audit.
-
-## Replay the actions
-
-Use the image built by the repository's [Quickstart](../../README.md#quickstart), then run from the repository root:
+Build the image using the repository's [Quickstart](../../README.md#quickstart), then run these commands from the repository root:
 
 ```bash
 ./scripts/fetch_demo_data.py
 ./cps start
 ```
 
-The following requires an unchanged default session and a new output directory.
-It refuses to overwrite an existing demonstration directory.
-The trial choices and the final decision are the recorded sequence, so reviewing the images remains a separate step.
+Start with an unchanged default session and a new output directory.
+The replay refuses to overwrite an existing demonstration directory.
+It repeats the recorded trials and decision without calling a model; interpreting the resulting images remains a separate step.
 
 ```bash
 ./cps exec <<'PYCODE'
@@ -111,11 +110,8 @@ replay(session)
 PYCODE
 ```
 
-The PNGs are under `.cps/three-field-replay/views/`.
-The helpers use three Session instances inside the same daemon and select the appropriate process-global input/output preferences before rerunning a field.
-The normal `cps status` command still describes its original field.
-
-Run the saved pipeline in a separate container process over the combined three-row CSV:
+Inspect the PNGs in `.cps/three-field-replay/views/`.
+Run the saved pipeline in a separate container process over the combined three-row CSV, compare the outputs, and stop the session:
 
 ```bash
 ./cprun.sh python -m cellprofiler -c -r \
@@ -132,10 +128,32 @@ python3 demo/three-fields/verify.py \
 
 A successful comparison reports exact finite numeric equality and artifact hashes.
 Raw images, full exported CSVs, and intermediate label arrays stay in the ignored `data/` and `.cps/` directories.
-The repository includes the compact recorded evidence and the scripts needed to reproduce it.
+The repository contains the compact recorded evidence and reproduction scripts.
 
-## Scope
+<details>
+<summary>Session and audit details</summary>
 
-One pipeline, one plate, three preselected fields, and IdentifyPrimaryObjects only.
-The model's visual interpretations were not scored against expert annotations.
-This demonstrates tool use, cross-field comparison, reversible editing, and reproducible execution; it does not estimate general agent reliability or prove a segmentation-quality improvement.
+The exploration used three Session instances in one persistent CellProfiler daemon, with no new production session API.
+The helpers select each field's process-global input/output preferences before rerunning it.
+The normal `cps status` command still describes the original field.
+No model was trained.
+
+CellProfiler 5 re-serializes the older pipeline format on save.
+Identical settings therefore do not imply byte-for-byte identity with the original pipeline file.
+
+Independent execution took 323.358 seconds; the [native job record](recorded/headless-job.json) identifies its command and runtime.
+Fresh-session replay took 67.753 seconds.
+The replay's expected values passed against the original independent outputs, and its byte-identical saved pipeline did not need a second headless run.
+The [replay record](recorded/replay-check.json) preserves a status-serialization error and its repair; neither changed pipeline or object state.
+
+Both demonstration daemon sessions were stopped.
+The redundant replay directory was moved to trash after its hashes were retained.
+Full original outputs remain in `.cps/three-field-demo/` on Spirit for audit.
+
+</details>
+
+## Scope remains one pipeline and three fields
+
+The demonstration covers IdentifyPrimaryObjects on three preselected fields from one plate.
+The agent's visual interpretations were not scored against expert annotations.
+The recorded results support the demonstrated actions and execution checks; they do not establish a segmentation-quality improvement or predict performance on other pipelines, fields, or plates.
